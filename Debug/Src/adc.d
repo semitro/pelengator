@@ -25,6 +25,8 @@ Src/adc.o: ../Src/adc.c \
  /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash_ex.h \
  /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c.h \
  /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c_ex.h \
+ /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_opamp.h \
+ /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_opamp_ex.h \
  /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.h \
  /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
  /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
@@ -81,6 +83,10 @@ Src/adc.o: ../Src/adc.c \
 /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c.h:
 
 /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c_ex.h:
+
+/home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_opamp.h:
+
+/home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_opamp_ex.h:
 
 /home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.h:
 

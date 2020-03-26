@@ -5,9 +5,11 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Src/adc.c \
+../Src/debug_helper.c \
 ../Src/dma.c \
 ../Src/gpio.c \
 ../Src/main.c \
+../Src/opamp.c \
 ../Src/stm32f3xx_hal_msp.c \
 ../Src/stm32f3xx_it.c \
 ../Src/syscalls.c \
@@ -16,9 +18,11 @@ C_SRCS += \
 
 OBJS += \
 ./Src/adc.o \
+./Src/debug_helper.o \
 ./Src/dma.o \
 ./Src/gpio.o \
 ./Src/main.o \
+./Src/opamp.o \
 ./Src/stm32f3xx_hal_msp.o \
 ./Src/stm32f3xx_it.o \
 ./Src/syscalls.o \
@@ -27,9 +31,11 @@ OBJS += \
 
 C_DEPS += \
 ./Src/adc.d \
+./Src/debug_helper.d \
 ./Src/dma.d \
 ./Src/gpio.d \
 ./Src/main.d \
+./Src/opamp.d \
 ./Src/stm32f3xx_hal_msp.d \
 ./Src/stm32f3xx_it.d \
 ./Src/syscalls.d \

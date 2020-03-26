@@ -22,12 +22,14 @@
 #include "main.h"
 #include "adc.h"
 #include "dma.h"
+#include "opamp.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "audio_format.h"
+#include "debug_helper.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,7 +39,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define DEBUG_MODE
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -99,8 +101,9 @@ int main(void)
   MX_ADC1_Init();
   MX_ADC2_Init();
   MX_USART1_UART_Init();
+  MX_OPAMP1_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_OPAMP_Start(&hopamp1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -111,7 +114,7 @@ int main(void)
 	  HAL_ADC_Start(&hadc2);
 	  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
 	  HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)adc_data.data, adc_data.len);
-	  HAL_Delay(200);
+	  print_debug_uint(adc_data.data[0].ch1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
