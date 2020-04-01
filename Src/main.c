@@ -83,9 +83,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  char string[128] = {};
-  size_t bytes_written = sprintf(string, "ADC Frequency: %d\n\r", ADC_FREQUENCY);
-  HAL_UART_Transmit(&huart1, string, bytes_written, 100);
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -104,6 +102,9 @@ int main(void)
   MX_OPAMP1_Init();
   /* USER CODE BEGIN 2 */
   HAL_OPAMP_Start(&hopamp1);
+  char string[128] = {};
+  size_t bytes_written = sprintf(string, "ADC Frequency: %d\n\r", ADC_FREQUENCY);
+  HAL_UART_Transmit(&huart1, string, bytes_written, 100);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -114,7 +115,9 @@ int main(void)
 	  HAL_ADC_Start(&hadc2);
 	  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
 	  HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)adc_data.data, adc_data.len);
-	  print_debug_uint(adc_data.data[0].ch1);
+	  HAL_Delay(500);
+//	  print_debug_uint(adc_data.data[0].ch1);
+	  print_debug_ch1(&adc_data);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -147,7 +150,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV8;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV16;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV16;
 
@@ -156,7 +159,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1;
-  PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
+  PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_SYSCLK;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
