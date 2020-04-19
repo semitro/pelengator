@@ -1,5 +1,16 @@
 #include "fft.h"
 
+int is_there_whistle(Audio_Data* data){
+	int16_t* freq_ch1 = fft_ch1(data);
+	for(int i = 55; i < 115; ++i){
+		if(freq_ch1[i] > 5 || freq_ch1[i] < -5) {
+			return 1;
+		}
+	}
+	return 0;
+}
+
+
 void fft(q15_t* src, q15_t* dst) {
 	static 	arm_status status;
 	static arm_rfft_instance_q15 fft_instance;

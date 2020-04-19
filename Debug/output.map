@@ -135,6 +135,8 @@ Discarded input sections
                 0x0000000000000000       0x28 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .text.HAL_GetTickFreq
                 0x0000000000000000        0xc Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
+ .text.HAL_Delay
+                0x0000000000000000       0x28 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .text.HAL_SuspendTick
                 0x0000000000000000       0x10 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .text.HAL_ResumeTick
@@ -2735,9 +2737,22 @@ Discarded input sections
  .data          0x0000000000000000        0x0 Src/debug_helper.o
  .bss           0x0000000000000000        0x0 Src/debug_helper.o
  .text.print_debug
-                0x0000000000000000        0x2 Src/debug_helper.o
+                0x0000000000000000       0x14 Src/debug_helper.o
  .text.print_debug_uint
                 0x0000000000000000       0x34 Src/debug_helper.o
+ .text.print_debug_ch1
+                0x0000000000000000       0x78 Src/debug_helper.o
+ .text.print_debug_array
+                0x0000000000000000       0x74 Src/debug_helper.o
+ .rodata.str1.4
+                0x0000000000000000        0xc Src/debug_helper.o
+ .debug_info    0x0000000000000000      0xac8 Src/debug_helper.o
+ .debug_abbrev  0x0000000000000000      0x262 Src/debug_helper.o
+ .debug_loc     0x0000000000000000      0x148 Src/debug_helper.o
+ .debug_aranges
+                0x0000000000000000       0x38 Src/debug_helper.o
+ .debug_ranges  0x0000000000000000       0x28 Src/debug_helper.o
+ .debug_macro   0x0000000000000000      0x21f Src/debug_helper.o
  .debug_macro   0x0000000000000000      0xa6c Src/debug_helper.o
  .debug_macro   0x0000000000000000      0x15d Src/debug_helper.o
  .debug_macro   0x0000000000000000       0x2e Src/debug_helper.o
@@ -2779,6 +2794,13 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x589 Src/debug_helper.o
  .debug_macro   0x0000000000000000       0x3e Src/debug_helper.o
  .debug_macro   0x0000000000000000      0x275 Src/debug_helper.o
+ .debug_macro   0x0000000000000000       0x22 Src/debug_helper.o
+ .debug_line    0x0000000000000000      0x747 Src/debug_helper.o
+ .debug_str     0x0000000000000000    0x97181 Src/debug_helper.o
+ .comment       0x0000000000000000       0x80 Src/debug_helper.o
+ .debug_frame   0x0000000000000000       0x8c Src/debug_helper.o
+ .ARM.attributes
+                0x0000000000000000       0x37 Src/debug_helper.o
  .group         0x0000000000000000        0xc Src/dma.o
  .group         0x0000000000000000        0xc Src/dma.o
  .group         0x0000000000000000        0xc Src/dma.o
@@ -4045,7 +4067,7 @@ LOAD /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.lin
                 0x0000000008000000                g_pfnVectors
                 0x0000000008000188                . = ALIGN (0x4)
 
-.text           0x0000000008000190     0x46a8
+.text           0x0000000008000190     0x45c8
                 0x0000000008000190                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000008000190       0x40 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
@@ -4064,531 +4086,523 @@ LOAD /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.lin
  .text.HAL_GetTick
                 0x00000000080002f4        0xc Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
                 0x00000000080002f4                HAL_GetTick
- .text.HAL_Delay
-                0x0000000008000300       0x28 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
-                0x0000000008000300                HAL_Delay
  .text.HAL_ADC_ConvCpltCallback
-                0x0000000008000328        0x2 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
-                0x0000000008000328                HAL_ADC_ConvCpltCallback
+                0x0000000008000300        0x2 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
+                0x0000000008000300                HAL_ADC_ConvCpltCallback
  .text.HAL_ADC_ConvHalfCpltCallback
-                0x000000000800032a        0x2 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
-                0x000000000800032a                HAL_ADC_ConvHalfCpltCallback
+                0x0000000008000302        0x2 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
+                0x0000000008000302                HAL_ADC_ConvHalfCpltCallback
  .text.HAL_ADC_ErrorCallback
-                0x000000000800032c        0x2 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
-                0x000000000800032c                HAL_ADC_ErrorCallback
+                0x0000000008000304        0x2 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
+                0x0000000008000304                HAL_ADC_ErrorCallback
  .text.ADC_Disable
-                0x000000000800032e       0x7e Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x0000000008000306       0x7e Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
  .text.ADC_ConversionStop
-                0x00000000080003ac       0xd8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x0000000008000384       0xd8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
  .text.ADC_Enable
-                0x0000000008000484       0x78 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x000000000800045c       0x78 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
  .text.ADC_DMAError
-                0x00000000080004fc       0x1a Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x00000000080004d4       0x1a Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
  .text.ADC_DMAHalfConvCplt
-                0x0000000008000516        0xa Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x00000000080004ee        0xa Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
  .text.ADC_DMAConvCplt
-                0x0000000008000520       0x4a Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
- *fill*         0x000000000800056a        0x2 
+                0x00000000080004f8       0x4a Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+ *fill*         0x0000000008000542        0x2 
  .text.HAL_ADC_Init
-                0x000000000800056c      0x294 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
-                0x000000000800056c                HAL_ADC_Init
+                0x0000000008000544      0x294 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x0000000008000544                HAL_ADC_Init
  .text.HAL_ADC_Start
-                0x0000000008000800      0x184 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
-                0x0000000008000800                HAL_ADC_Start
+                0x00000000080007d8      0x184 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x00000000080007d8                HAL_ADC_Start
  .text.HAL_ADC_Stop
-                0x0000000008000984       0x4a Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
-                0x0000000008000984                HAL_ADC_Stop
- *fill*         0x00000000080009ce        0x2 
+                0x000000000800095c       0x4a Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x000000000800095c                HAL_ADC_Stop
+ *fill*         0x00000000080009a6        0x2 
  .text.HAL_ADCEx_MultiModeStart_DMA
-                0x00000000080009d0      0x12c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
-                0x00000000080009d0                HAL_ADCEx_MultiModeStart_DMA
+                0x00000000080009a8      0x12c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x00000000080009a8                HAL_ADCEx_MultiModeStart_DMA
  .text.HAL_ADCEx_MultiModeStop_DMA
-                0x0000000008000afc      0x10c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
-                0x0000000008000afc                HAL_ADCEx_MultiModeStop_DMA
+                0x0000000008000ad4      0x10c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x0000000008000ad4                HAL_ADCEx_MultiModeStop_DMA
  .text.HAL_ADC_ConfigChannel
-                0x0000000008000c08      0x3ac Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
-                0x0000000008000c08                HAL_ADC_ConfigChannel
+                0x0000000008000be0      0x3ac Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x0000000008000be0                HAL_ADC_ConfigChannel
  .text.HAL_ADCEx_MultiModeConfigChannel
-                0x0000000008000fb4      0x158 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
-                0x0000000008000fb4                HAL_ADCEx_MultiModeConfigChannel
+                0x0000000008000f8c      0x158 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+                0x0000000008000f8c                HAL_ADCEx_MultiModeConfigChannel
  .text.HAL_NVIC_SetPriorityGrouping
-                0x000000000800110c       0x24 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
-                0x000000000800110c                HAL_NVIC_SetPriorityGrouping
+                0x00000000080010e4       0x24 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
+                0x00000000080010e4                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x0000000008001130       0x68 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
-                0x0000000008001130                HAL_NVIC_SetPriority
+                0x0000000008001108       0x68 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
+                0x0000000008001108                HAL_NVIC_SetPriority
  .text.HAL_NVIC_EnableIRQ
-                0x0000000008001198       0x1c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
-                0x0000000008001198                HAL_NVIC_EnableIRQ
+                0x0000000008001170       0x1c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
+                0x0000000008001170                HAL_NVIC_EnableIRQ
  .text.HAL_SYSTICK_Config
-                0x00000000080011b4       0x2c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
-                0x00000000080011b4                HAL_SYSTICK_Config
+                0x000000000800118c       0x2c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
+                0x000000000800118c                HAL_SYSTICK_Config
  .text.DMA_SetConfig
-                0x00000000080011e0       0x2c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
+                0x00000000080011b8       0x2c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
  .text.DMA_CalcBaseAndBitshift
-                0x000000000800120c       0x4c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
+                0x00000000080011e4       0x4c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
  .text.HAL_DMA_Init
-                0x0000000008001258       0x50 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
-                0x0000000008001258                HAL_DMA_Init
+                0x0000000008001230       0x50 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
+                0x0000000008001230                HAL_DMA_Init
  .text.HAL_DMA_Start_IT
-                0x00000000080012a8       0x74 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
-                0x00000000080012a8                HAL_DMA_Start_IT
+                0x0000000008001280       0x74 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
+                0x0000000008001280                HAL_DMA_Start_IT
  .text.HAL_DMA_Abort
-                0x000000000800131c       0x44 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
-                0x000000000800131c                HAL_DMA_Abort
+                0x00000000080012f4       0x44 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
+                0x00000000080012f4                HAL_DMA_Abort
  .text.HAL_DMA_IRQHandler
-                0x0000000008001360       0xb4 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
-                0x0000000008001360                HAL_DMA_IRQHandler
+                0x0000000008001338       0xb4 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
+                0x0000000008001338                HAL_DMA_IRQHandler
  .text.HAL_GPIO_Init
-                0x0000000008001414      0x194 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
-                0x0000000008001414                HAL_GPIO_Init
+                0x00000000080013ec      0x194 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
+                0x00000000080013ec                HAL_GPIO_Init
  .text.HAL_OPAMP_Init
-                0x00000000080015a8       0xe4 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_opamp.o
-                0x00000000080015a8                HAL_OPAMP_Init
+                0x0000000008001580       0xe4 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_opamp.o
+                0x0000000008001580                HAL_OPAMP_Init
  .text.HAL_OPAMP_Start
-                0x000000000800168c       0x36 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_opamp.o
-                0x000000000800168c                HAL_OPAMP_Start
- *fill*         0x00000000080016c2        0x2 
+                0x0000000008001664       0x36 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_opamp.o
+                0x0000000008001664                HAL_OPAMP_Start
+ *fill*         0x000000000800169a        0x2 
  .text.HAL_RCC_OscConfig
-                0x00000000080016c4      0x644 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
-                0x00000000080016c4                HAL_RCC_OscConfig
+                0x000000000800169c      0x644 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
+                0x000000000800169c                HAL_RCC_OscConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x0000000008001d08       0x70 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
-                0x0000000008001d08                HAL_RCC_GetSysClockFreq
+                0x0000000008001ce0       0x70 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
+                0x0000000008001ce0                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x0000000008001d78      0x1a4 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
-                0x0000000008001d78                HAL_RCC_ClockConfig
+                0x0000000008001d50      0x1a4 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
+                0x0000000008001d50                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetHCLKFreq
-                0x0000000008001f1c        0xc Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
-                0x0000000008001f1c                HAL_RCC_GetHCLKFreq
+                0x0000000008001ef4        0xc Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
+                0x0000000008001ef4                HAL_RCC_GetHCLKFreq
  .text.HAL_RCC_GetPCLK1Freq
-                0x0000000008001f28       0x2c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
-                0x0000000008001f28                HAL_RCC_GetPCLK1Freq
+                0x0000000008001f00       0x2c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
+                0x0000000008001f00                HAL_RCC_GetPCLK1Freq
  .text.HAL_RCC_GetPCLK2Freq
-                0x0000000008001f54       0x2c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
-                0x0000000008001f54                HAL_RCC_GetPCLK2Freq
+                0x0000000008001f2c       0x2c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
+                0x0000000008001f2c                HAL_RCC_GetPCLK2Freq
  .text.HAL_RCCEx_PeriphCLKConfig
-                0x0000000008001f80      0x268 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
-                0x0000000008001f80                HAL_RCCEx_PeriphCLKConfig
+                0x0000000008001f58      0x268 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
+                0x0000000008001f58                HAL_RCCEx_PeriphCLKConfig
  .text.UART_SetConfig
-                0x00000000080021e8      0x2b8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
-                0x00000000080021e8                UART_SetConfig
+                0x00000000080021c0      0x2b8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
+                0x00000000080021c0                UART_SetConfig
  .text.UART_AdvFeatureConfig
-                0x00000000080024a0       0xca Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
-                0x00000000080024a0                UART_AdvFeatureConfig
+                0x0000000008002478       0xca Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
+                0x0000000008002478                UART_AdvFeatureConfig
  .text.UART_WaitOnFlagUntilTimeout
-                0x000000000800256a       0x9c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
-                0x000000000800256a                UART_WaitOnFlagUntilTimeout
+                0x0000000008002542       0x9c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
+                0x0000000008002542                UART_WaitOnFlagUntilTimeout
  .text.HAL_UART_Transmit
-                0x0000000008002606       0xd8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
-                0x0000000008002606                HAL_UART_Transmit
+                0x00000000080025de       0xd8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
+                0x00000000080025de                HAL_UART_Transmit
  .text.UART_CheckIdleState
-                0x00000000080026de       0x6c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
-                0x00000000080026de                UART_CheckIdleState
+                0x00000000080026b6       0x6c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
+                0x00000000080026b6                UART_CheckIdleState
  .text.HAL_UART_Init
-                0x000000000800274a       0x62 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
-                0x000000000800274a                HAL_UART_Init
+                0x0000000008002722       0x62 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
+                0x0000000008002722                HAL_UART_Init
  .text.MX_ADC1_Init
-                0x00000000080027ac       0x9c Src/adc.o
-                0x00000000080027ac                MX_ADC1_Init
+                0x0000000008002784       0x9c Src/adc.o
+                0x0000000008002784                MX_ADC1_Init
  .text.MX_ADC2_Init
-                0x0000000008002848       0x78 Src/adc.o
-                0x0000000008002848                MX_ADC2_Init
+                0x0000000008002820       0x78 Src/adc.o
+                0x0000000008002820                MX_ADC2_Init
  .text.HAL_ADC_MspInit
-                0x00000000080028c0      0x100 Src/adc.o
-                0x00000000080028c0                HAL_ADC_MspInit
- .text.print_debug_ch1
-                0x00000000080029c0       0x78 Src/debug_helper.o
-                0x00000000080029c0                print_debug_ch1
- .text.print_debug_array
-                0x0000000008002a38       0x74 Src/debug_helper.o
-                0x0000000008002a38                print_debug_array
+                0x0000000008002898      0x100 Src/adc.o
+                0x0000000008002898                HAL_ADC_MspInit
  .text.MX_DMA_Init
-                0x0000000008002aac       0x34 Src/dma.o
-                0x0000000008002aac                MX_DMA_Init
- .text.fft      0x0000000008002ae0       0x34 Src/fft.o
-                0x0000000008002ae0                fft
- .text.fft_ch1  0x0000000008002b14       0x38 Src/fft.o
-                0x0000000008002b14                fft_ch1
+                0x0000000008002998       0x34 Src/dma.o
+                0x0000000008002998                MX_DMA_Init
+ .text.fft      0x00000000080029cc       0x34 Src/fft.o
+                0x00000000080029cc                fft
+ .text.fft_ch1  0x0000000008002a00       0x38 Src/fft.o
+                0x0000000008002a00                fft_ch1
+ .text.is_there_whistle
+                0x0000000008002a38       0x24 Src/fft.o
+                0x0000000008002a38                is_there_whistle
  .text.MX_GPIO_Init
-                0x0000000008002b4c       0x30 Src/gpio.o
-                0x0000000008002b4c                MX_GPIO_Init
+                0x0000000008002a5c       0x30 Src/gpio.o
+                0x0000000008002a5c                MX_GPIO_Init
  .text.SystemClock_Config
-                0x0000000008002b7c       0x5e Src/main.o
-                0x0000000008002b7c                SystemClock_Config
- *fill*         0x0000000008002bda        0x2 
- .text.main     0x0000000008002bdc       0xa8 Src/main.o
-                0x0000000008002bdc                main
+                0x0000000008002a8c       0x5e Src/main.o
+                0x0000000008002a8c                SystemClock_Config
+ *fill*         0x0000000008002aea        0x2 
+ .text.main     0x0000000008002aec       0xb8 Src/main.o
+                0x0000000008002aec                main
  .text.Error_Handler
-                0x0000000008002c84        0x2 Src/main.o
-                0x0000000008002c84                Error_Handler
- *fill*         0x0000000008002c86        0x2 
+                0x0000000008002ba4        0x2 Src/main.o
+                0x0000000008002ba4                Error_Handler
+ *fill*         0x0000000008002ba6        0x2 
  .text.MX_OPAMP1_Init
-                0x0000000008002c88       0x34 Src/opamp.o
-                0x0000000008002c88                MX_OPAMP1_Init
+                0x0000000008002ba8       0x34 Src/opamp.o
+                0x0000000008002ba8                MX_OPAMP1_Init
  .text.HAL_OPAMP_MspInit
-                0x0000000008002cbc       0x50 Src/opamp.o
-                0x0000000008002cbc                HAL_OPAMP_MspInit
+                0x0000000008002bdc       0x50 Src/opamp.o
+                0x0000000008002bdc                HAL_OPAMP_MspInit
  .text.HAL_MspInit
-                0x0000000008002d0c       0x30 Src/stm32f3xx_hal_msp.o
-                0x0000000008002d0c                HAL_MspInit
+                0x0000000008002c2c       0x30 Src/stm32f3xx_hal_msp.o
+                0x0000000008002c2c                HAL_MspInit
  .text.NMI_Handler
-                0x0000000008002d3c        0x2 Src/stm32f3xx_it.o
-                0x0000000008002d3c                NMI_Handler
+                0x0000000008002c5c        0x2 Src/stm32f3xx_it.o
+                0x0000000008002c5c                NMI_Handler
  .text.HardFault_Handler
-                0x0000000008002d3e        0x2 Src/stm32f3xx_it.o
-                0x0000000008002d3e                HardFault_Handler
+                0x0000000008002c5e        0x2 Src/stm32f3xx_it.o
+                0x0000000008002c5e                HardFault_Handler
  .text.MemManage_Handler
-                0x0000000008002d40        0x2 Src/stm32f3xx_it.o
-                0x0000000008002d40                MemManage_Handler
+                0x0000000008002c60        0x2 Src/stm32f3xx_it.o
+                0x0000000008002c60                MemManage_Handler
  .text.BusFault_Handler
-                0x0000000008002d42        0x2 Src/stm32f3xx_it.o
-                0x0000000008002d42                BusFault_Handler
+                0x0000000008002c62        0x2 Src/stm32f3xx_it.o
+                0x0000000008002c62                BusFault_Handler
  .text.UsageFault_Handler
-                0x0000000008002d44        0x2 Src/stm32f3xx_it.o
-                0x0000000008002d44                UsageFault_Handler
+                0x0000000008002c64        0x2 Src/stm32f3xx_it.o
+                0x0000000008002c64                UsageFault_Handler
  .text.SVC_Handler
-                0x0000000008002d46        0x2 Src/stm32f3xx_it.o
-                0x0000000008002d46                SVC_Handler
+                0x0000000008002c66        0x2 Src/stm32f3xx_it.o
+                0x0000000008002c66                SVC_Handler
  .text.DebugMon_Handler
-                0x0000000008002d48        0x2 Src/stm32f3xx_it.o
-                0x0000000008002d48                DebugMon_Handler
+                0x0000000008002c68        0x2 Src/stm32f3xx_it.o
+                0x0000000008002c68                DebugMon_Handler
  .text.PendSV_Handler
-                0x0000000008002d4a        0x2 Src/stm32f3xx_it.o
-                0x0000000008002d4a                PendSV_Handler
+                0x0000000008002c6a        0x2 Src/stm32f3xx_it.o
+                0x0000000008002c6a                PendSV_Handler
  .text.SysTick_Handler
-                0x0000000008002d4c        0x8 Src/stm32f3xx_it.o
-                0x0000000008002d4c                SysTick_Handler
+                0x0000000008002c6c        0x8 Src/stm32f3xx_it.o
+                0x0000000008002c6c                SysTick_Handler
  .text.DMA1_Channel1_IRQHandler
-                0x0000000008002d54       0x10 Src/stm32f3xx_it.o
-                0x0000000008002d54                DMA1_Channel1_IRQHandler
- .text._sbrk    0x0000000008002d64       0x3c Src/syscalls.o
-                0x0000000008002d64                _sbrk
+                0x0000000008002c74       0x10 Src/stm32f3xx_it.o
+                0x0000000008002c74                DMA1_Channel1_IRQHandler
+ .text._sbrk    0x0000000008002c84       0x3c Src/syscalls.o
+                0x0000000008002c84                _sbrk
  .text.SystemInit
-                0x0000000008002da0       0x68 Src/system_stm32f3xx.o
-                0x0000000008002da0                SystemInit
+                0x0000000008002cc0       0x68 Src/system_stm32f3xx.o
+                0x0000000008002cc0                SystemInit
  .text.MX_USART1_UART_Init
-                0x0000000008002e08       0x38 Src/usart.o
-                0x0000000008002e08                MX_USART1_UART_Init
+                0x0000000008002d28       0x38 Src/usart.o
+                0x0000000008002d28                MX_USART1_UART_Init
  .text.HAL_UART_MspInit
-                0x0000000008002e40       0x68 Src/usart.o
-                0x0000000008002e40                HAL_UART_MspInit
+                0x0000000008002d60       0x68 Src/usart.o
+                0x0000000008002d60                HAL_UART_MspInit
  .text.Reset_Handler
-                0x0000000008002ea8       0x50 startup/startup_stm32f303xc.o
-                0x0000000008002ea8                Reset_Handler
+                0x0000000008002dc8       0x50 startup/startup_stm32f303xc.o
+                0x0000000008002dc8                Reset_Handler
  .text.Default_Handler
-                0x0000000008002ef8        0x2 startup/startup_stm32f303xc.o
-                0x0000000008002ef8                RTC_Alarm_IRQHandler
-                0x0000000008002ef8                TIM8_TRG_COM_IRQHandler
-                0x0000000008002ef8                TIM8_CC_IRQHandler
-                0x0000000008002ef8                TIM1_CC_IRQHandler
-                0x0000000008002ef8                USB_HP_IRQHandler
-                0x0000000008002ef8                PVD_IRQHandler
-                0x0000000008002ef8                TAMP_STAMP_IRQHandler
-                0x0000000008002ef8                EXTI3_IRQHandler
-                0x0000000008002ef8                USB_HP_CAN_TX_IRQHandler
-                0x0000000008002ef8                EXTI0_IRQHandler
-                0x0000000008002ef8                I2C2_EV_IRQHandler
-                0x0000000008002ef8                FPU_IRQHandler
-                0x0000000008002ef8                TIM1_UP_TIM16_IRQHandler
-                0x0000000008002ef8                ADC1_2_IRQHandler
-                0x0000000008002ef8                SPI1_IRQHandler
-                0x0000000008002ef8                CAN_SCE_IRQHandler
-                0x0000000008002ef8                TIM6_DAC_IRQHandler
-                0x0000000008002ef8                TIM8_UP_IRQHandler
-                0x0000000008002ef8                DMA2_Channel2_IRQHandler
-                0x0000000008002ef8                DMA1_Channel4_IRQHandler
-                0x0000000008002ef8                USART3_IRQHandler
-                0x0000000008002ef8                DMA1_Channel7_IRQHandler
-                0x0000000008002ef8                UART5_IRQHandler
-                0x0000000008002ef8                ADC3_IRQHandler
-                0x0000000008002ef8                TIM4_IRQHandler
-                0x0000000008002ef8                CAN_RX1_IRQHandler
-                0x0000000008002ef8                DMA2_Channel1_IRQHandler
-                0x0000000008002ef8                I2C1_EV_IRQHandler
-                0x0000000008002ef8                DMA1_Channel6_IRQHandler
-                0x0000000008002ef8                UART4_IRQHandler
-                0x0000000008002ef8                DMA2_Channel4_IRQHandler
-                0x0000000008002ef8                TIM3_IRQHandler
-                0x0000000008002ef8                RCC_IRQHandler
-                0x0000000008002ef8                Default_Handler
-                0x0000000008002ef8                USBWakeUp_RMP_IRQHandler
-                0x0000000008002ef8                EXTI15_10_IRQHandler
-                0x0000000008002ef8                TIM7_IRQHandler
-                0x0000000008002ef8                EXTI9_5_IRQHandler
-                0x0000000008002ef8                RTC_WKUP_IRQHandler
-                0x0000000008002ef8                SPI2_IRQHandler
-                0x0000000008002ef8                USB_LP_CAN_RX0_IRQHandler
-                0x0000000008002ef8                DMA2_Channel5_IRQHandler
-                0x0000000008002ef8                DMA1_Channel5_IRQHandler
-                0x0000000008002ef8                USB_LP_IRQHandler
-                0x0000000008002ef8                EXTI4_IRQHandler
-                0x0000000008002ef8                TIM1_TRG_COM_TIM17_IRQHandler
-                0x0000000008002ef8                DMA1_Channel3_IRQHandler
-                0x0000000008002ef8                ADC4_IRQHandler
-                0x0000000008002ef8                WWDG_IRQHandler
-                0x0000000008002ef8                TIM2_IRQHandler
-                0x0000000008002ef8                COMP7_IRQHandler
-                0x0000000008002ef8                COMP1_2_3_IRQHandler
-                0x0000000008002ef8                EXTI1_IRQHandler
-                0x0000000008002ef8                USART2_IRQHandler
-                0x0000000008002ef8                COMP4_5_6_IRQHandler
-                0x0000000008002ef8                I2C2_ER_IRQHandler
-                0x0000000008002ef8                DMA1_Channel2_IRQHandler
-                0x0000000008002ef8                TIM8_BRK_IRQHandler
-                0x0000000008002ef8                FLASH_IRQHandler
-                0x0000000008002ef8                USART1_IRQHandler
-                0x0000000008002ef8                SPI3_IRQHandler
-                0x0000000008002ef8                I2C1_ER_IRQHandler
-                0x0000000008002ef8                USBWakeUp_IRQHandler
-                0x0000000008002ef8                DMA2_Channel3_IRQHandler
-                0x0000000008002ef8                EXTI2_TSC_IRQHandler
-                0x0000000008002ef8                TIM1_BRK_TIM15_IRQHandler
- *fill*         0x0000000008002efa        0x2 
+                0x0000000008002e18        0x2 startup/startup_stm32f303xc.o
+                0x0000000008002e18                RTC_Alarm_IRQHandler
+                0x0000000008002e18                TIM8_TRG_COM_IRQHandler
+                0x0000000008002e18                TIM8_CC_IRQHandler
+                0x0000000008002e18                TIM1_CC_IRQHandler
+                0x0000000008002e18                USB_HP_IRQHandler
+                0x0000000008002e18                PVD_IRQHandler
+                0x0000000008002e18                TAMP_STAMP_IRQHandler
+                0x0000000008002e18                EXTI3_IRQHandler
+                0x0000000008002e18                USB_HP_CAN_TX_IRQHandler
+                0x0000000008002e18                EXTI0_IRQHandler
+                0x0000000008002e18                I2C2_EV_IRQHandler
+                0x0000000008002e18                FPU_IRQHandler
+                0x0000000008002e18                TIM1_UP_TIM16_IRQHandler
+                0x0000000008002e18                ADC1_2_IRQHandler
+                0x0000000008002e18                SPI1_IRQHandler
+                0x0000000008002e18                CAN_SCE_IRQHandler
+                0x0000000008002e18                TIM6_DAC_IRQHandler
+                0x0000000008002e18                TIM8_UP_IRQHandler
+                0x0000000008002e18                DMA2_Channel2_IRQHandler
+                0x0000000008002e18                DMA1_Channel4_IRQHandler
+                0x0000000008002e18                USART3_IRQHandler
+                0x0000000008002e18                DMA1_Channel7_IRQHandler
+                0x0000000008002e18                UART5_IRQHandler
+                0x0000000008002e18                ADC3_IRQHandler
+                0x0000000008002e18                TIM4_IRQHandler
+                0x0000000008002e18                CAN_RX1_IRQHandler
+                0x0000000008002e18                DMA2_Channel1_IRQHandler
+                0x0000000008002e18                I2C1_EV_IRQHandler
+                0x0000000008002e18                DMA1_Channel6_IRQHandler
+                0x0000000008002e18                UART4_IRQHandler
+                0x0000000008002e18                DMA2_Channel4_IRQHandler
+                0x0000000008002e18                TIM3_IRQHandler
+                0x0000000008002e18                RCC_IRQHandler
+                0x0000000008002e18                Default_Handler
+                0x0000000008002e18                USBWakeUp_RMP_IRQHandler
+                0x0000000008002e18                EXTI15_10_IRQHandler
+                0x0000000008002e18                TIM7_IRQHandler
+                0x0000000008002e18                EXTI9_5_IRQHandler
+                0x0000000008002e18                RTC_WKUP_IRQHandler
+                0x0000000008002e18                SPI2_IRQHandler
+                0x0000000008002e18                USB_LP_CAN_RX0_IRQHandler
+                0x0000000008002e18                DMA2_Channel5_IRQHandler
+                0x0000000008002e18                DMA1_Channel5_IRQHandler
+                0x0000000008002e18                USB_LP_IRQHandler
+                0x0000000008002e18                EXTI4_IRQHandler
+                0x0000000008002e18                TIM1_TRG_COM_TIM17_IRQHandler
+                0x0000000008002e18                DMA1_Channel3_IRQHandler
+                0x0000000008002e18                ADC4_IRQHandler
+                0x0000000008002e18                WWDG_IRQHandler
+                0x0000000008002e18                TIM2_IRQHandler
+                0x0000000008002e18                COMP7_IRQHandler
+                0x0000000008002e18                COMP1_2_3_IRQHandler
+                0x0000000008002e18                EXTI1_IRQHandler
+                0x0000000008002e18                USART2_IRQHandler
+                0x0000000008002e18                COMP4_5_6_IRQHandler
+                0x0000000008002e18                I2C2_ER_IRQHandler
+                0x0000000008002e18                DMA1_Channel2_IRQHandler
+                0x0000000008002e18                TIM8_BRK_IRQHandler
+                0x0000000008002e18                FLASH_IRQHandler
+                0x0000000008002e18                USART1_IRQHandler
+                0x0000000008002e18                SPI3_IRQHandler
+                0x0000000008002e18                I2C1_ER_IRQHandler
+                0x0000000008002e18                USBWakeUp_IRQHandler
+                0x0000000008002e18                DMA2_Channel3_IRQHandler
+                0x0000000008002e18                EXTI2_TSC_IRQHandler
+                0x0000000008002e18                TIM1_BRK_TIM15_IRQHandler
+ *fill*         0x0000000008002e1a        0x2 
  .text.arm_split_rfft_q15
-                0x0000000008002efc       0xec /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
-                0x0000000008002efc                arm_split_rfft_q15
+                0x0000000008002e1c       0xec /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+                0x0000000008002e1c                arm_split_rfft_q15
  .text.arm_rfft_q15
-                0x0000000008002fe8      0x100 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
-                0x0000000008002fe8                arm_rfft_q15
+                0x0000000008002f08      0x100 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+                0x0000000008002f08                arm_rfft_q15
  .text.arm_rfft_init_q15
-                0x00000000080030e8       0xec /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
-                0x00000000080030e8                arm_rfft_init_q15
+                0x0000000008003008       0xec /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
+                0x0000000008003008                arm_rfft_init_q15
  .text.arm_abs_q15
-                0x00000000080031d4       0xf0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
-                0x00000000080031d4                arm_abs_q15
+                0x00000000080030f4       0xf0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
+                0x00000000080030f4                arm_abs_q15
  .text.arm_cfft_radix4by2_q15
-                0x00000000080032c4       0xec /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
-                0x00000000080032c4                arm_cfft_radix4by2_q15
+                0x00000000080031e4       0xec /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+                0x00000000080031e4                arm_cfft_radix4by2_q15
  .text.arm_cfft_radix4by2_inverse_q15
-                0x00000000080033b0       0xec /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
-                0x00000000080033b0                arm_cfft_radix4by2_inverse_q15
+                0x00000000080032d0       0xec /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+                0x00000000080032d0                arm_cfft_radix4by2_inverse_q15
  .text.arm_cfft_q15
-                0x000000000800349c       0xd8 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
-                0x000000000800349c                arm_cfft_q15
+                0x00000000080033bc       0xd8 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+                0x00000000080033bc                arm_cfft_q15
  .text.arm_radix4_butterfly_q15
-                0x0000000008003574      0x518 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
-                0x0000000008003574                arm_radix4_butterfly_q15
+                0x0000000008003494      0x518 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
+                0x0000000008003494                arm_radix4_butterfly_q15
  .text.arm_radix4_butterfly_inverse_q15
-                0x0000000008003a8c      0x4e4 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
-                0x0000000008003a8c                arm_radix4_butterfly_inverse_q15
+                0x00000000080039ac      0x4e4 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
+                0x00000000080039ac                arm_radix4_butterfly_inverse_q15
  .text.arm_bitreversal_16
-                0x0000000008003f70       0x40 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
-                0x0000000008003f70                arm_bitreversal_16
- .text.__errno  0x0000000008003fb0        0xc /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-errno.o)
-                0x0000000008003fb0                __errno
+                0x0000000008003e90       0x40 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
+                0x0000000008003e90                arm_bitreversal_16
+ .text.__errno  0x0000000008003ed0        0xc /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-errno.o)
+                0x0000000008003ed0                __errno
  .text.__libc_init_array
-                0x0000000008003fbc       0x48 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-init.o)
-                0x0000000008003fbc                __libc_init_array
- .text.memset   0x0000000008004004       0x10 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memset.o)
-                0x0000000008004004                memset
- .text.sprintf  0x0000000008004014       0x40 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sprintf.o)
-                0x0000000008004014                sprintf
-                0x0000000008004014                siprintf
+                0x0000000008003edc       0x48 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-init.o)
+                0x0000000008003edc                __libc_init_array
+ .text.memset   0x0000000008003f24       0x10 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memset.o)
+                0x0000000008003f24                memset
+ .text.sprintf  0x0000000008003f34       0x40 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sprintf.o)
+                0x0000000008003f34                sprintf
+                0x0000000008003f34                siprintf
  .text.__ssputs_r
-                0x0000000008004054       0xb4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-svfprintf.o)
-                0x0000000008004054                __ssputs_r
+                0x0000000008003f74       0xb4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000008003f74                __ssputs_r
  .text._svfprintf_r
-                0x0000000008004108      0x1f0 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-svfprintf.o)
-                0x0000000008004108                _svfprintf_r
-                0x0000000008004108                _svfiprintf_r
+                0x0000000008004028      0x1f0 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000008004028                _svfprintf_r
+                0x0000000008004028                _svfiprintf_r
  .text._printf_common
-                0x00000000080042f8       0xea /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00000000080042f8                _printf_common
- *fill*         0x00000000080043e2        0x2 
+                0x0000000008004218       0xea /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000008004218                _printf_common
+ *fill*         0x0000000008004302        0x2 
  .text._printf_i
-                0x00000000080043e4      0x224 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00000000080043e4                _printf_i
- .text.memcpy   0x0000000008004608       0x16 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memcpy-stub.o)
-                0x0000000008004608                memcpy
- .text.memmove  0x000000000800461e       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memmove.o)
-                0x000000000800461e                memmove
- .text._free_r  0x0000000008004650       0x9c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-freer.o)
-                0x0000000008004650                _free_r
+                0x0000000008004304      0x224 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000008004304                _printf_i
+ .text.memcpy   0x0000000008004528       0x16 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memcpy-stub.o)
+                0x0000000008004528                memcpy
+ .text.memmove  0x000000000800453e       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memmove.o)
+                0x000000000800453e                memmove
+ .text._free_r  0x0000000008004570       0x9c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-freer.o)
+                0x0000000008004570                _free_r
  .text._malloc_r
-                0x00000000080046ec       0xb4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-mallocr.o)
-                0x00000000080046ec                _malloc_r
+                0x000000000800460c       0xb4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-mallocr.o)
+                0x000000000800460c                _malloc_r
  .text._realloc_r
-                0x00000000080047a0       0x4c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-reallocr.o)
-                0x00000000080047a0                _realloc_r
- .text._sbrk_r  0x00000000080047ec       0x20 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sbrkr.o)
-                0x00000000080047ec                _sbrk_r
+                0x00000000080046c0       0x4c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-reallocr.o)
+                0x00000000080046c0                _realloc_r
+ .text._sbrk_r  0x000000000800470c       0x20 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sbrkr.o)
+                0x000000000800470c                _sbrk_r
  .text.__malloc_lock
-                0x000000000800480c        0x2 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-mlock.o)
-                0x000000000800480c                __malloc_lock
+                0x000000000800472c        0x2 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-mlock.o)
+                0x000000000800472c                __malloc_lock
  .text.__malloc_unlock
-                0x000000000800480e        0x2 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-mlock.o)
-                0x000000000800480e                __malloc_unlock
+                0x000000000800472e        0x2 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-mlock.o)
+                0x000000000800472e                __malloc_unlock
  .text._malloc_usable_size_r
-                0x0000000008004810       0x10 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-msizer.o)
-                0x0000000008004810                _malloc_usable_size_r
+                0x0000000008004730       0x10 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-msizer.o)
+                0x0000000008004730                _malloc_usable_size_r
  *(.glue_7)
- .glue_7        0x0000000008004820        0x0 linker stubs
+ .glue_7        0x0000000008004740        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008004820        0x0 linker stubs
+ .glue_7t       0x0000000008004740        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000000008004820        0x0 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
+ .eh_frame      0x0000000008004740        0x0 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
  *(.init)
- .init          0x0000000008004820        0x4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crti.o
-                0x0000000008004820                _init
- .init          0x0000000008004824        0x8 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
+ .init          0x0000000008004740        0x4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crti.o
+                0x0000000008004740                _init
+ .init          0x0000000008004744        0x8 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
  *(.fini)
- .fini          0x000000000800482c        0x4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crti.o
-                0x000000000800482c                _fini
- .fini          0x0000000008004830        0x8 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
-                0x0000000008004838                . = ALIGN (0x4)
-                0x0000000008004838                _etext = .
+ .fini          0x000000000800474c        0x4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crti.o
+                0x000000000800474c                _fini
+ .fini          0x0000000008004750        0x8 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
+                0x0000000008004758                . = ALIGN (0x4)
+                0x0000000008004758                _etext = .
 
-.vfp11_veneer   0x0000000008004838        0x0
- .vfp11_veneer  0x0000000008004838        0x0 linker stubs
+.vfp11_veneer   0x0000000008004758        0x0
+ .vfp11_veneer  0x0000000008004758        0x0 linker stubs
 
-.v4_bx          0x0000000008004838        0x0
- .v4_bx         0x0000000008004838        0x0 linker stubs
+.v4_bx          0x0000000008004758        0x0
+ .v4_bx         0x0000000008004758        0x0 linker stubs
 
-.iplt           0x0000000008004838        0x0
- .iplt          0x0000000008004838        0x0 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
+.iplt           0x0000000008004758        0x0
+ .iplt          0x0000000008004758        0x0 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
-.rodata         0x0000000008004838    0x11ee8
-                0x0000000008004838                . = ALIGN (0x4)
+.rodata         0x0000000008004758    0x11ee4
+                0x0000000008004758                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0000000008004838       0x20 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
-                0x0000000008004838                aPLLMULFactorTable
-                0x0000000008004848                aPredivFactorTable
- .rodata        0x0000000008004858       0x18 Src/system_stm32f3xx.o
-                0x0000000008004858                AHBPrescTable
-                0x0000000008004868                APBPrescTable
+ .rodata        0x0000000008004758       0x20 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
+                0x0000000008004758                aPLLMULFactorTable
+                0x0000000008004768                aPredivFactorTable
+ .rodata        0x0000000008004778       0x18 Src/system_stm32f3xx.o
+                0x0000000008004778                AHBPrescTable
+                0x0000000008004788                APBPrescTable
  *(.rodata*)
  .rodata.str1.4
-                0x0000000008004870        0xc Src/debug_helper.o
- .rodata.str1.4
-                0x000000000800487c       0x18 Src/main.o
-                                         0x16 (size before relaxing)
+                0x0000000008004790       0x20 Src/main.o
+                                         0x1f (size before relaxing)
  .rodata.arm_cfft_sR_q15_len1024
-                0x0000000008004894       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
-                0x0000000008004894                arm_cfft_sR_q15_len1024
+                0x00000000080047b0       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x00000000080047b0                arm_cfft_sR_q15_len1024
  .rodata.arm_cfft_sR_q15_len128
-                0x00000000080048a4       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
-                0x00000000080048a4                arm_cfft_sR_q15_len128
+                0x00000000080047c0       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x00000000080047c0                arm_cfft_sR_q15_len128
  .rodata.arm_cfft_sR_q15_len16
-                0x00000000080048b4       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
-                0x00000000080048b4                arm_cfft_sR_q15_len16
+                0x00000000080047d0       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x00000000080047d0                arm_cfft_sR_q15_len16
  .rodata.arm_cfft_sR_q15_len2048
-                0x00000000080048c4       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
-                0x00000000080048c4                arm_cfft_sR_q15_len2048
+                0x00000000080047e0       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x00000000080047e0                arm_cfft_sR_q15_len2048
  .rodata.arm_cfft_sR_q15_len256
-                0x00000000080048d4       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
-                0x00000000080048d4                arm_cfft_sR_q15_len256
+                0x00000000080047f0       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x00000000080047f0                arm_cfft_sR_q15_len256
  .rodata.arm_cfft_sR_q15_len32
-                0x00000000080048e4       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
-                0x00000000080048e4                arm_cfft_sR_q15_len32
+                0x0000000008004800       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x0000000008004800                arm_cfft_sR_q15_len32
  .rodata.arm_cfft_sR_q15_len4096
-                0x00000000080048f4       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
-                0x00000000080048f4                arm_cfft_sR_q15_len4096
+                0x0000000008004810       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x0000000008004810                arm_cfft_sR_q15_len4096
  .rodata.arm_cfft_sR_q15_len512
-                0x0000000008004904       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
-                0x0000000008004904                arm_cfft_sR_q15_len512
+                0x0000000008004820       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x0000000008004820                arm_cfft_sR_q15_len512
  .rodata.arm_cfft_sR_q15_len64
-                0x0000000008004914       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
-                0x0000000008004914                arm_cfft_sR_q15_len64
+                0x0000000008004830       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x0000000008004830                arm_cfft_sR_q15_len64
  .rodata.armBitRevIndexTable_fixed_1024
-                0x0000000008004924      0x7c0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x0000000008004924                armBitRevIndexTable_fixed_1024
+                0x0000000008004840      0x7c0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008004840                armBitRevIndexTable_fixed_1024
  .rodata.armBitRevIndexTable_fixed_128
-                0x00000000080050e4       0xe0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x00000000080050e4                armBitRevIndexTable_fixed_128
+                0x0000000008005000       0xe0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008005000                armBitRevIndexTable_fixed_128
  .rodata.armBitRevIndexTable_fixed_16
-                0x00000000080051c4       0x18 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x00000000080051c4                armBitRevIndexTable_fixed_16
+                0x00000000080050e0       0x18 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x00000000080050e0                armBitRevIndexTable_fixed_16
  .rodata.armBitRevIndexTable_fixed_2048
-                0x00000000080051dc      0xf80 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x00000000080051dc                armBitRevIndexTable_fixed_2048
+                0x00000000080050f8      0xf80 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x00000000080050f8                armBitRevIndexTable_fixed_2048
  .rodata.armBitRevIndexTable_fixed_256
-                0x000000000800615c      0x1e0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000800615c                armBitRevIndexTable_fixed_256
+                0x0000000008006078      0x1e0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008006078                armBitRevIndexTable_fixed_256
  .rodata.armBitRevIndexTable_fixed_32
-                0x000000000800633c       0x30 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000800633c                armBitRevIndexTable_fixed_32
+                0x0000000008006258       0x30 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008006258                armBitRevIndexTable_fixed_32
  .rodata.armBitRevIndexTable_fixed_4096
-                0x000000000800636c     0x1f80 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000800636c                armBitRevIndexTable_fixed_4096
+                0x0000000008006288     0x1f80 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008006288                armBitRevIndexTable_fixed_4096
  .rodata.armBitRevIndexTable_fixed_512
-                0x00000000080082ec      0x3c0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x00000000080082ec                armBitRevIndexTable_fixed_512
+                0x0000000008008208      0x3c0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008008208                armBitRevIndexTable_fixed_512
  .rodata.armBitRevIndexTable_fixed_64
-                0x00000000080086ac       0x70 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x00000000080086ac                armBitRevIndexTable_fixed_64
+                0x00000000080085c8       0x70 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x00000000080085c8                armBitRevIndexTable_fixed_64
  .rodata.realCoefAQ15
-                0x000000000800871c     0x4000 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000800871c                realCoefAQ15
+                0x0000000008008638     0x4000 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008008638                realCoefAQ15
  .rodata.realCoefBQ15
-                0x000000000800c71c     0x4000 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000800c71c                realCoefBQ15
+                0x000000000800c638     0x4000 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x000000000800c638                realCoefBQ15
  .rodata.twiddleCoef_1024_q15
-                0x000000000801071c      0xc00 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000801071c                twiddleCoef_1024_q15
+                0x0000000008010638      0xc00 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008010638                twiddleCoef_1024_q15
  .rodata.twiddleCoef_128_q15
-                0x000000000801131c      0x180 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000801131c                twiddleCoef_128_q15
+                0x0000000008011238      0x180 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008011238                twiddleCoef_128_q15
  .rodata.twiddleCoef_16_q15
-                0x000000000801149c       0x30 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000801149c                twiddleCoef_16_q15
+                0x00000000080113b8       0x30 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x00000000080113b8                twiddleCoef_16_q15
  .rodata.twiddleCoef_2048_q15
-                0x00000000080114cc     0x1800 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x00000000080114cc                twiddleCoef_2048_q15
+                0x00000000080113e8     0x1800 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x00000000080113e8                twiddleCoef_2048_q15
  .rodata.twiddleCoef_256_q15
-                0x0000000008012ccc      0x300 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x0000000008012ccc                twiddleCoef_256_q15
+                0x0000000008012be8      0x300 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008012be8                twiddleCoef_256_q15
  .rodata.twiddleCoef_32_q15
-                0x0000000008012fcc       0x60 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x0000000008012fcc                twiddleCoef_32_q15
+                0x0000000008012ee8       0x60 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008012ee8                twiddleCoef_32_q15
  .rodata.twiddleCoef_4096_q15
-                0x000000000801302c     0x3000 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000801302c                twiddleCoef_4096_q15
+                0x0000000008012f48     0x3000 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008012f48                twiddleCoef_4096_q15
  .rodata.twiddleCoef_512_q15
-                0x000000000801602c      0x600 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000801602c                twiddleCoef_512_q15
+                0x0000000008015f48      0x600 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008015f48                twiddleCoef_512_q15
  .rodata.twiddleCoef_64_q15
-                0x000000000801662c       0xc0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
-                0x000000000801662c                twiddleCoef_64_q15
+                0x0000000008016548       0xc0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000008016548                twiddleCoef_64_q15
  .rodata._svfprintf_r.str1.1
-                0x00000000080166ec       0x11 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000008016608       0x11 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x00000000080166fd       0x22 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0000000008016720                . = ALIGN (0x4)
- *fill*         0x000000000801671f        0x1 
+                0x0000000008016619       0x22 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000000000801663c                . = ALIGN (0x4)
+ *fill*         0x000000000801663b        0x1 
 
-.rel.dyn        0x0000000008016720        0x0
- .rel.iplt      0x0000000008016720        0x0 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
+.rel.dyn        0x000000000801663c        0x0
+ .rel.iplt      0x000000000801663c        0x0 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0000000008016720        0x0
-                0x0000000008016720                __exidx_start = .
+.ARM            0x000000000801663c        0x0
+                0x000000000801663c                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000008016720                __exidx_end = .
+                0x000000000801663c                __exidx_end = .
 
-.preinit_array  0x0000000008016720        0x0
-                0x0000000008016720                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x000000000801663c        0x0
+                0x000000000801663c                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008016720                PROVIDE (__preinit_array_end = .)
+                0x000000000801663c                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000000008016720        0x4
-                0x0000000008016720                PROVIDE (__init_array_start = .)
+.init_array     0x000000000801663c        0x4
+                0x000000000801663c                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000008016720        0x4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
-                0x0000000008016724                PROVIDE (__init_array_end = .)
+ .init_array    0x000000000801663c        0x4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
+                0x0000000008016640                PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000000008016724        0x4
+.fini_array     0x0000000008016640        0x4
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000008016724        0x4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
+ .fini_array    0x0000000008016640        0x4 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000008016728                _sidata = LOADADDR (.data)
+                0x0000000008016644                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000      0x474 load address 0x0000000008016728
+.data           0x0000000020000000      0x474 load address 0x0000000008016644
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -4607,12 +4621,12 @@ LOAD /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.lin
                 0x0000000020000414       0x60 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-impure.o)
                 0x0000000020000474                . = ALIGN (0x4)
                 0x0000000020000474                _edata = .
-                0x0000000008016b9c                _siccmram = LOADADDR (.ccmram)
+                0x0000000008016ab8                _siccmram = LOADADDR (.ccmram)
 
-.igot.plt       0x0000000020000474        0x0 load address 0x0000000008016b9c
+.igot.plt       0x0000000020000474        0x0 load address 0x0000000008016ab8
  .igot.plt      0x0000000020000474        0x0 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
-.ccmram         0x0000000010000000        0x0 load address 0x0000000008016b9c
+.ccmram         0x0000000010000000        0x0 load address 0x0000000008016ab8
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _sccmram = .
  *(.ccmram)
@@ -4701,84 +4715,82 @@ LOAD /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.lin
  .ARM.attributes
                 0x000000000000027a       0x37 Src/adc.o
  .ARM.attributes
-                0x00000000000002b1       0x37 Src/debug_helper.o
+                0x00000000000002b1       0x37 Src/dma.o
  .ARM.attributes
-                0x00000000000002e8       0x37 Src/dma.o
+                0x00000000000002e8       0x37 Src/fft.o
  .ARM.attributes
-                0x000000000000031f       0x37 Src/fft.o
+                0x000000000000031f       0x37 Src/gpio.o
  .ARM.attributes
-                0x0000000000000356       0x37 Src/gpio.o
+                0x0000000000000356       0x37 Src/main.o
  .ARM.attributes
-                0x000000000000038d       0x37 Src/main.o
+                0x000000000000038d       0x37 Src/opamp.o
  .ARM.attributes
-                0x00000000000003c4       0x37 Src/opamp.o
+                0x00000000000003c4       0x37 Src/stm32f3xx_hal_msp.o
  .ARM.attributes
-                0x00000000000003fb       0x37 Src/stm32f3xx_hal_msp.o
+                0x00000000000003fb       0x37 Src/stm32f3xx_it.o
  .ARM.attributes
-                0x0000000000000432       0x37 Src/stm32f3xx_it.o
+                0x0000000000000432       0x37 Src/syscalls.o
  .ARM.attributes
-                0x0000000000000469       0x37 Src/syscalls.o
+                0x0000000000000469       0x37 Src/system_stm32f3xx.o
  .ARM.attributes
-                0x00000000000004a0       0x37 Src/system_stm32f3xx.o
+                0x00000000000004a0       0x37 Src/usart.o
  .ARM.attributes
-                0x00000000000004d7       0x37 Src/usart.o
+                0x00000000000004d7       0x21 startup/startup_stm32f303xc.o
  .ARM.attributes
-                0x000000000000050e       0x21 startup/startup_stm32f303xc.o
+                0x00000000000004f8       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
  .ARM.attributes
-                0x000000000000052f       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+                0x0000000000000525       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
  .ARM.attributes
-                0x000000000000055c       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
+                0x0000000000000552       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
  .ARM.attributes
-                0x0000000000000589       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
+                0x000000000000057f       0x33 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
  .ARM.attributes
-                0x00000000000005b6       0x33 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x00000000000005b2       0x33 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
  .ARM.attributes
-                0x00000000000005e9       0x33 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x00000000000005e5       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
  .ARM.attributes
-                0x000000000000061c       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+                0x0000000000000612       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
  .ARM.attributes
-                0x0000000000000649       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
+                0x000000000000063f       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
  .ARM.attributes
-                0x0000000000000676       0x2d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
+                0x000000000000066c       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x00000000000006a3       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-errno.o)
+                0x000000000000069e       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000000000006d5       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-impure.o)
+                0x00000000000006d0       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x0000000000000707       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-init.o)
+                0x0000000000000702       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x0000000000000739       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memset.o)
+                0x0000000000000734       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sprintf.o)
  .ARM.attributes
-                0x000000000000076b       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sprintf.o)
+                0x0000000000000766       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-svfprintf.o)
  .ARM.attributes
-                0x000000000000079d       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000000000798       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-vfprintf_i.o)
  .ARM.attributes
-                0x00000000000007cf       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00000000000007ca       0x20 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memchr.o)
  .ARM.attributes
-                0x0000000000000801       0x20 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memchr.o)
+                0x00000000000007ea       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x0000000000000821       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memcpy-stub.o)
+                0x000000000000081c       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memmove.o)
  .ARM.attributes
-                0x0000000000000853       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memmove.o)
+                0x000000000000084e       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-freer.o)
  .ARM.attributes
-                0x0000000000000885       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-freer.o)
+                0x0000000000000880       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-mallocr.o)
  .ARM.attributes
-                0x00000000000008b7       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-mallocr.o)
+                0x00000000000008b2       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-reallocr.o)
  .ARM.attributes
-                0x00000000000008e9       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-reallocr.o)
+                0x00000000000008e4       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x000000000000091b       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sbrkr.o)
+                0x0000000000000916       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-mlock.o)
  .ARM.attributes
-                0x000000000000094d       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-mlock.o)
+                0x0000000000000948       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-msizer.o)
  .ARM.attributes
-                0x000000000000097f       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-msizer.o)
+                0x000000000000097a       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-reent.o)
  .ARM.attributes
-                0x00000000000009b1       0x32 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-reent.o)
- .ARM.attributes
-                0x00000000000009e3       0x22 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
+                0x00000000000009ac       0x22 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
 OUTPUT(Whistle-2.0.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000    0x1c249
+.debug_info     0x0000000000000000    0x1b7bc
  .debug_info    0x0000000000000000      0x88e Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_info    0x000000000000088e      0xbcf Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
  .debug_info    0x000000000000145d     0x1b6b Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
@@ -4790,28 +4802,27 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
  .debug_info    0x00000000000069ca      0x7b3 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_info    0x000000000000717d     0x1b74 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
  .debug_info    0x0000000000008cf1      0xc80 Src/adc.o
- .debug_info    0x0000000000009971      0xaa9 Src/debug_helper.o
- .debug_info    0x000000000000a41a      0x478 Src/dma.o
- .debug_info    0x000000000000a892     0x1803 Src/fft.o
- .debug_info    0x000000000000c095      0x278 Src/gpio.o
- .debug_info    0x000000000000c30d     0x261b Src/main.o
- .debug_info    0x000000000000e928      0x60b Src/opamp.o
- .debug_info    0x000000000000ef33      0x278 Src/stm32f3xx_hal_msp.o
- .debug_info    0x000000000000f1ab      0x462 Src/stm32f3xx_it.o
- .debug_info    0x000000000000f60d      0xfd3 Src/syscalls.o
- .debug_info    0x00000000000105e0      0x460 Src/system_stm32f3xx.o
- .debug_info    0x0000000000010a40      0x9a1 Src/usart.o
- .debug_info    0x00000000000113e1       0x22 startup/startup_stm32f303xc.o
- .debug_info    0x0000000000011403     0x1047 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
- .debug_info    0x000000000001244a     0x198e /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
- .debug_info    0x0000000000013dd8      0xb0b /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
- .debug_info    0x00000000000148e3     0x1d16 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
- .debug_info    0x00000000000165f9     0x1a84 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
- .debug_info    0x000000000001807d     0x100d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
- .debug_info    0x000000000001908a     0x1b13 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
- .debug_info    0x000000000001ab9d     0x16ac /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
+ .debug_info    0x0000000000009971      0x478 Src/dma.o
+ .debug_info    0x0000000000009de9     0x1869 Src/fft.o
+ .debug_info    0x000000000000b652      0x278 Src/gpio.o
+ .debug_info    0x000000000000b8ca     0x25d1 Src/main.o
+ .debug_info    0x000000000000de9b      0x60b Src/opamp.o
+ .debug_info    0x000000000000e4a6      0x278 Src/stm32f3xx_hal_msp.o
+ .debug_info    0x000000000000e71e      0x462 Src/stm32f3xx_it.o
+ .debug_info    0x000000000000eb80      0xfd3 Src/syscalls.o
+ .debug_info    0x000000000000fb53      0x460 Src/system_stm32f3xx.o
+ .debug_info    0x000000000000ffb3      0x9a1 Src/usart.o
+ .debug_info    0x0000000000010954       0x22 startup/startup_stm32f303xc.o
+ .debug_info    0x0000000000010976     0x1047 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+ .debug_info    0x00000000000119bd     0x198e /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
+ .debug_info    0x000000000001334b      0xb0b /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
+ .debug_info    0x0000000000013e56     0x1d16 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+ .debug_info    0x0000000000015b6c     0x1a84 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+ .debug_info    0x00000000000175f0     0x100d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+ .debug_info    0x00000000000185fd     0x1b13 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
+ .debug_info    0x000000000001a110     0x16ac /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
 
-.debug_abbrev   0x0000000000000000     0x3ee0
+.debug_abbrev   0x0000000000000000     0x3c78
  .debug_abbrev  0x0000000000000000      0x1ed Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_abbrev  0x00000000000001ed      0x196 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
  .debug_abbrev  0x0000000000000383      0x29c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
@@ -4823,28 +4834,27 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
  .debug_abbrev  0x00000000000011e3      0x24b Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_abbrev  0x000000000000142e      0x24d Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
  .debug_abbrev  0x000000000000167b      0x1da Src/adc.o
- .debug_abbrev  0x0000000000001855      0x271 Src/debug_helper.o
- .debug_abbrev  0x0000000000001ac6      0x140 Src/dma.o
- .debug_abbrev  0x0000000000001c06      0x2a6 Src/fft.o
- .debug_abbrev  0x0000000000001eac      0x109 Src/gpio.o
- .debug_abbrev  0x0000000000001fb5      0x312 Src/main.o
- .debug_abbrev  0x00000000000022c7      0x1a3 Src/opamp.o
- .debug_abbrev  0x000000000000246a      0x109 Src/stm32f3xx_hal_msp.o
- .debug_abbrev  0x0000000000002573      0x167 Src/stm32f3xx_it.o
- .debug_abbrev  0x00000000000026da      0x2d4 Src/syscalls.o
- .debug_abbrev  0x00000000000029ae      0x12b Src/system_stm32f3xx.o
- .debug_abbrev  0x0000000000002ad9      0x1c9 Src/usart.o
- .debug_abbrev  0x0000000000002ca2       0x12 startup/startup_stm32f303xc.o
- .debug_abbrev  0x0000000000002cb4      0x2f0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
- .debug_abbrev  0x0000000000002fa4      0x230 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
- .debug_abbrev  0x00000000000031d4      0x1ff /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
- .debug_abbrev  0x00000000000033d3      0x201 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
- .debug_abbrev  0x00000000000035d4      0x1dd /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
- .debug_abbrev  0x00000000000037b1      0x26b /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
- .debug_abbrev  0x0000000000003a1c      0x2aa /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
- .debug_abbrev  0x0000000000003cc6      0x21a /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
+ .debug_abbrev  0x0000000000001855      0x140 Src/dma.o
+ .debug_abbrev  0x0000000000001995      0x2be Src/fft.o
+ .debug_abbrev  0x0000000000001c53      0x109 Src/gpio.o
+ .debug_abbrev  0x0000000000001d5c      0x303 Src/main.o
+ .debug_abbrev  0x000000000000205f      0x1a3 Src/opamp.o
+ .debug_abbrev  0x0000000000002202      0x109 Src/stm32f3xx_hal_msp.o
+ .debug_abbrev  0x000000000000230b      0x167 Src/stm32f3xx_it.o
+ .debug_abbrev  0x0000000000002472      0x2d4 Src/syscalls.o
+ .debug_abbrev  0x0000000000002746      0x12b Src/system_stm32f3xx.o
+ .debug_abbrev  0x0000000000002871      0x1c9 Src/usart.o
+ .debug_abbrev  0x0000000000002a3a       0x12 startup/startup_stm32f303xc.o
+ .debug_abbrev  0x0000000000002a4c      0x2f0 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+ .debug_abbrev  0x0000000000002d3c      0x230 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
+ .debug_abbrev  0x0000000000002f6c      0x1ff /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
+ .debug_abbrev  0x000000000000316b      0x201 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+ .debug_abbrev  0x000000000000336c      0x1dd /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+ .debug_abbrev  0x0000000000003549      0x26b /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+ .debug_abbrev  0x00000000000037b4      0x2aa /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
+ .debug_abbrev  0x0000000000003a5e      0x21a /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
 
-.debug_loc      0x0000000000000000     0x9f75
+.debug_loc      0x0000000000000000     0x9ea5
  .debug_loc     0x0000000000000000      0x11b Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_loc     0x000000000000011b      0x1ef Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
  .debug_loc     0x000000000000030a     0x1b4b Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
@@ -4856,21 +4866,19 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
  .debug_loc     0x0000000000003e10      0x82d Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_loc     0x000000000000463d     0x1913 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
  .debug_loc     0x0000000000005f50       0xc1 Src/adc.o
- .debug_loc     0x0000000000006011      0x11c Src/debug_helper.o
- .debug_loc     0x000000000000612d       0x98 Src/fft.o
- .debug_loc     0x00000000000061c5       0x13 Src/main.o
- .debug_loc     0x00000000000061d8       0x74 Src/opamp.o
- .debug_loc     0x000000000000624c      0x3af Src/syscalls.o
- .debug_loc     0x00000000000065fb       0xff Src/system_stm32f3xx.o
- .debug_loc     0x00000000000066fa       0x74 Src/usart.o
- .debug_loc     0x000000000000676e      0xb1d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
- .debug_loc     0x000000000000728b      0x405 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
- .debug_loc     0x0000000000007690      0x324 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
- .debug_loc     0x00000000000079b4      0x9f2 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
- .debug_loc     0x00000000000083a6     0x19ed /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
- .debug_loc     0x0000000000009d93      0x1e2 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
+ .debug_loc     0x0000000000006011       0xf7 Src/fft.o
+ .debug_loc     0x0000000000006108       0x74 Src/opamp.o
+ .debug_loc     0x000000000000617c      0x3af Src/syscalls.o
+ .debug_loc     0x000000000000652b       0xff Src/system_stm32f3xx.o
+ .debug_loc     0x000000000000662a       0x74 Src/usart.o
+ .debug_loc     0x000000000000669e      0xb1d /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+ .debug_loc     0x00000000000071bb      0x405 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
+ .debug_loc     0x00000000000075c0      0x324 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
+ .debug_loc     0x00000000000078e4      0x9f2 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+ .debug_loc     0x00000000000082d6     0x19ed /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
+ .debug_loc     0x0000000000009cc3      0x1e2 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
 
-.debug_aranges  0x0000000000000000      0xbe8
+.debug_aranges  0x0000000000000000      0xbb8
  .debug_aranges
                 0x0000000000000000       0xe0 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_aranges
@@ -4894,47 +4902,45 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
  .debug_aranges
                 0x00000000000007d0       0x38 Src/adc.o
  .debug_aranges
-                0x0000000000000808       0x38 Src/debug_helper.o
+                0x0000000000000808       0x20 Src/dma.o
  .debug_aranges
-                0x0000000000000840       0x20 Src/dma.o
+                0x0000000000000828       0x30 Src/fft.o
  .debug_aranges
-                0x0000000000000860       0x28 Src/fft.o
+                0x0000000000000858       0x20 Src/gpio.o
  .debug_aranges
-                0x0000000000000888       0x20 Src/gpio.o
+                0x0000000000000878       0x30 Src/main.o
  .debug_aranges
-                0x00000000000008a8       0x30 Src/main.o
+                0x00000000000008a8       0x30 Src/opamp.o
  .debug_aranges
-                0x00000000000008d8       0x30 Src/opamp.o
+                0x00000000000008d8       0x20 Src/stm32f3xx_hal_msp.o
  .debug_aranges
-                0x0000000000000908       0x20 Src/stm32f3xx_hal_msp.o
+                0x00000000000008f8       0x68 Src/stm32f3xx_it.o
  .debug_aranges
-                0x0000000000000928       0x68 Src/stm32f3xx_it.o
+                0x0000000000000960       0xb0 Src/syscalls.o
  .debug_aranges
-                0x0000000000000990       0xb0 Src/syscalls.o
+                0x0000000000000a10       0x28 Src/system_stm32f3xx.o
  .debug_aranges
-                0x0000000000000a40       0x28 Src/system_stm32f3xx.o
+                0x0000000000000a38       0x30 Src/usart.o
  .debug_aranges
-                0x0000000000000a68       0x30 Src/usart.o
+                0x0000000000000a68       0x28 startup/startup_stm32f303xc.o
  .debug_aranges
-                0x0000000000000a98       0x28 startup/startup_stm32f303xc.o
+                0x0000000000000a90       0x30 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
  .debug_aranges
-                0x0000000000000ac0       0x30 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+                0x0000000000000ac0       0x20 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
  .debug_aranges
-                0x0000000000000af0       0x20 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
+                0x0000000000000ae0       0x20 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
  .debug_aranges
-                0x0000000000000b10       0x20 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
+                0x0000000000000b00       0x18 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
  .debug_aranges
-                0x0000000000000b30       0x18 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+                0x0000000000000b18       0x18 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
  .debug_aranges
-                0x0000000000000b48       0x18 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+                0x0000000000000b30       0x30 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
  .debug_aranges
-                0x0000000000000b60       0x30 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+                0x0000000000000b60       0x30 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
  .debug_aranges
-                0x0000000000000b90       0x30 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
- .debug_aranges
-                0x0000000000000bc0       0x28 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
+                0x0000000000000b90       0x28 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
 
-.debug_ranges   0x0000000000000000     0x1438
+.debug_ranges   0x0000000000000000     0x1430
  .debug_ranges  0x0000000000000000       0xd0 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_ranges  0x00000000000000d0       0xb8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
  .debug_ranges  0x0000000000000188      0x158 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
@@ -4946,26 +4952,25 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
  .debug_ranges  0x0000000000000588       0x40 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_ranges  0x00000000000005c8      0x200 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
  .debug_ranges  0x00000000000007c8       0x28 Src/adc.o
- .debug_ranges  0x00000000000007f0       0x28 Src/debug_helper.o
- .debug_ranges  0x0000000000000818       0x10 Src/dma.o
- .debug_ranges  0x0000000000000828       0x18 Src/fft.o
- .debug_ranges  0x0000000000000840       0x10 Src/gpio.o
- .debug_ranges  0x0000000000000850       0x20 Src/main.o
- .debug_ranges  0x0000000000000870       0x20 Src/opamp.o
- .debug_ranges  0x0000000000000890       0x10 Src/stm32f3xx_hal_msp.o
- .debug_ranges  0x00000000000008a0       0x58 Src/stm32f3xx_it.o
- .debug_ranges  0x00000000000008f8       0xa0 Src/syscalls.o
- .debug_ranges  0x0000000000000998       0x18 Src/system_stm32f3xx.o
- .debug_ranges  0x00000000000009b0       0x20 Src/usart.o
- .debug_ranges  0x00000000000009d0       0x20 startup/startup_stm32f303xc.o
- .debug_ranges  0x00000000000009f0       0x38 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
- .debug_ranges  0x0000000000000a28       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
- .debug_ranges  0x0000000000000a38       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
- .debug_ranges  0x0000000000000a48       0x20 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
- .debug_ranges  0x0000000000000a68      0x9b8 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
- .debug_ranges  0x0000000000001420       0x18 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
+ .debug_ranges  0x00000000000007f0       0x10 Src/dma.o
+ .debug_ranges  0x0000000000000800       0x38 Src/fft.o
+ .debug_ranges  0x0000000000000838       0x10 Src/gpio.o
+ .debug_ranges  0x0000000000000848       0x20 Src/main.o
+ .debug_ranges  0x0000000000000868       0x20 Src/opamp.o
+ .debug_ranges  0x0000000000000888       0x10 Src/stm32f3xx_hal_msp.o
+ .debug_ranges  0x0000000000000898       0x58 Src/stm32f3xx_it.o
+ .debug_ranges  0x00000000000008f0       0xa0 Src/syscalls.o
+ .debug_ranges  0x0000000000000990       0x18 Src/system_stm32f3xx.o
+ .debug_ranges  0x00000000000009a8       0x20 Src/usart.o
+ .debug_ranges  0x00000000000009c8       0x20 startup/startup_stm32f303xc.o
+ .debug_ranges  0x00000000000009e8       0x38 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+ .debug_ranges  0x0000000000000a20       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
+ .debug_ranges  0x0000000000000a30       0x10 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
+ .debug_ranges  0x0000000000000a40       0x20 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+ .debug_ranges  0x0000000000000a60      0x9b8 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
+ .debug_ranges  0x0000000000001418       0x18 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
 
-.debug_macro    0x0000000000000000    0x1cb25
+.debug_macro    0x0000000000000000    0x1c8e4
  .debug_macro   0x0000000000000000      0x20c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_macro   0x000000000000020c      0xa6c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_macro   0x0000000000000c78      0x15d Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
@@ -5018,67 +5023,65 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
  .debug_macro   0x00000000000192e9      0x1e8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_macro   0x00000000000194d1      0x205 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
  .debug_macro   0x00000000000196d6      0x202 Src/adc.o
- .debug_macro   0x00000000000198d8      0x21f Src/debug_helper.o
- .debug_macro   0x0000000000019af7       0x22 Src/debug_helper.o
- .debug_macro   0x0000000000019b19      0x202 Src/dma.o
- .debug_macro   0x0000000000019d1b      0x1ab Src/fft.o
- .debug_macro   0x0000000000019ec6       0x5e Src/fft.o
- .debug_macro   0x0000000000019f24       0x18 Src/fft.o
- .debug_macro   0x0000000000019f3c       0x35 Src/fft.o
- .debug_macro   0x0000000000019f71       0x34 Src/fft.o
- .debug_macro   0x0000000000019fa5       0x58 Src/fft.o
- .debug_macro   0x0000000000019ffd       0x1f Src/fft.o
- .debug_macro   0x000000000001a01c       0x43 Src/fft.o
- .debug_macro   0x000000000001a05f       0x20 Src/fft.o
- .debug_macro   0x000000000001a07f      0x18e Src/fft.o
- .debug_macro   0x000000000001a20d      0x32a Src/fft.o
- .debug_macro   0x000000000001a537       0x10 Src/fft.o
- .debug_macro   0x000000000001a547       0x35 Src/fft.o
- .debug_macro   0x000000000001a57c      0x1e1 Src/fft.o
- .debug_macro   0x000000000001a75d      0x201 Src/fft.o
- .debug_macro   0x000000000001a95e       0xc8 Src/fft.o
- .debug_macro   0x000000000001aa26       0x8e Src/fft.o
- .debug_macro   0x000000000001aab4      0x202 Src/gpio.o
- .debug_macro   0x000000000001acb6      0x37a Src/main.o
- .debug_macro   0x000000000001b030      0x202 Src/opamp.o
- .debug_macro   0x000000000001b232      0x1f8 Src/stm32f3xx_hal_msp.o
- .debug_macro   0x000000000001b42a      0x202 Src/stm32f3xx_it.o
- .debug_macro   0x000000000001b62c      0x243 Src/syscalls.o
- .debug_macro   0x000000000001b86f       0x58 Src/syscalls.o
- .debug_macro   0x000000000001b8c7       0x94 Src/syscalls.o
- .debug_macro   0x000000000001b95b       0x57 Src/syscalls.o
- .debug_macro   0x000000000001b9b2      0x330 Src/syscalls.o
- .debug_macro   0x000000000001bce2       0x10 Src/syscalls.o
- .debug_macro   0x000000000001bcf2       0x10 Src/syscalls.o
- .debug_macro   0x000000000001bd02       0x10 Src/syscalls.o
- .debug_macro   0x000000000001bd12       0x10 Src/syscalls.o
- .debug_macro   0x000000000001bd22       0x1c Src/syscalls.o
- .debug_macro   0x000000000001bd3e       0x52 Src/syscalls.o
- .debug_macro   0x000000000001bd90       0x40 Src/syscalls.o
- .debug_macro   0x000000000001bdd0       0x10 Src/syscalls.o
- .debug_macro   0x000000000001bde0       0x40 Src/syscalls.o
- .debug_macro   0x000000000001be20       0xd7 Src/syscalls.o
- .debug_macro   0x000000000001bef7       0x1c Src/syscalls.o
- .debug_macro   0x000000000001bf13       0x3d Src/syscalls.o
- .debug_macro   0x000000000001bf50       0x35 Src/syscalls.o
- .debug_macro   0x000000000001bf85      0x122 Src/syscalls.o
- .debug_macro   0x000000000001c0a7       0x16 Src/syscalls.o
- .debug_macro   0x000000000001c0bd       0x16 Src/syscalls.o
- .debug_macro   0x000000000001c0d3       0x29 Src/syscalls.o
- .debug_macro   0x000000000001c0fc       0x10 Src/syscalls.o
- .debug_macro   0x000000000001c10c      0x241 Src/syscalls.o
- .debug_macro   0x000000000001c34d       0x1c Src/syscalls.o
- .debug_macro   0x000000000001c369       0x10 Src/syscalls.o
- .debug_macro   0x000000000001c379       0x10 Src/syscalls.o
- .debug_macro   0x000000000001c389       0x16 Src/syscalls.o
- .debug_macro   0x000000000001c39f      0x16f Src/syscalls.o
- .debug_macro   0x000000000001c50e      0x189 Src/syscalls.o
- .debug_macro   0x000000000001c697       0x16 Src/syscalls.o
- .debug_macro   0x000000000001c6ad       0x88 Src/syscalls.o
- .debug_macro   0x000000000001c735      0x1ee Src/system_stm32f3xx.o
- .debug_macro   0x000000000001c923      0x202 Src/usart.o
+ .debug_macro   0x00000000000198d8      0x202 Src/dma.o
+ .debug_macro   0x0000000000019ada      0x1ab Src/fft.o
+ .debug_macro   0x0000000000019c85       0x5e Src/fft.o
+ .debug_macro   0x0000000000019ce3       0x18 Src/fft.o
+ .debug_macro   0x0000000000019cfb       0x35 Src/fft.o
+ .debug_macro   0x0000000000019d30       0x34 Src/fft.o
+ .debug_macro   0x0000000000019d64       0x58 Src/fft.o
+ .debug_macro   0x0000000000019dbc       0x1f Src/fft.o
+ .debug_macro   0x0000000000019ddb       0x43 Src/fft.o
+ .debug_macro   0x0000000000019e1e       0x20 Src/fft.o
+ .debug_macro   0x0000000000019e3e      0x18e Src/fft.o
+ .debug_macro   0x0000000000019fcc      0x32a Src/fft.o
+ .debug_macro   0x000000000001a2f6       0x10 Src/fft.o
+ .debug_macro   0x000000000001a306       0x35 Src/fft.o
+ .debug_macro   0x000000000001a33b      0x1e1 Src/fft.o
+ .debug_macro   0x000000000001a51c      0x201 Src/fft.o
+ .debug_macro   0x000000000001a71d       0xc8 Src/fft.o
+ .debug_macro   0x000000000001a7e5       0x8e Src/fft.o
+ .debug_macro   0x000000000001a873      0x202 Src/gpio.o
+ .debug_macro   0x000000000001aa75      0x37a Src/main.o
+ .debug_macro   0x000000000001adef      0x202 Src/opamp.o
+ .debug_macro   0x000000000001aff1      0x1f8 Src/stm32f3xx_hal_msp.o
+ .debug_macro   0x000000000001b1e9      0x202 Src/stm32f3xx_it.o
+ .debug_macro   0x000000000001b3eb      0x243 Src/syscalls.o
+ .debug_macro   0x000000000001b62e       0x58 Src/syscalls.o
+ .debug_macro   0x000000000001b686       0x94 Src/syscalls.o
+ .debug_macro   0x000000000001b71a       0x57 Src/syscalls.o
+ .debug_macro   0x000000000001b771      0x330 Src/syscalls.o
+ .debug_macro   0x000000000001baa1       0x10 Src/syscalls.o
+ .debug_macro   0x000000000001bab1       0x10 Src/syscalls.o
+ .debug_macro   0x000000000001bac1       0x10 Src/syscalls.o
+ .debug_macro   0x000000000001bad1       0x10 Src/syscalls.o
+ .debug_macro   0x000000000001bae1       0x1c Src/syscalls.o
+ .debug_macro   0x000000000001bafd       0x52 Src/syscalls.o
+ .debug_macro   0x000000000001bb4f       0x40 Src/syscalls.o
+ .debug_macro   0x000000000001bb8f       0x10 Src/syscalls.o
+ .debug_macro   0x000000000001bb9f       0x40 Src/syscalls.o
+ .debug_macro   0x000000000001bbdf       0xd7 Src/syscalls.o
+ .debug_macro   0x000000000001bcb6       0x1c Src/syscalls.o
+ .debug_macro   0x000000000001bcd2       0x3d Src/syscalls.o
+ .debug_macro   0x000000000001bd0f       0x35 Src/syscalls.o
+ .debug_macro   0x000000000001bd44      0x122 Src/syscalls.o
+ .debug_macro   0x000000000001be66       0x16 Src/syscalls.o
+ .debug_macro   0x000000000001be7c       0x16 Src/syscalls.o
+ .debug_macro   0x000000000001be92       0x29 Src/syscalls.o
+ .debug_macro   0x000000000001bebb       0x10 Src/syscalls.o
+ .debug_macro   0x000000000001becb      0x241 Src/syscalls.o
+ .debug_macro   0x000000000001c10c       0x1c Src/syscalls.o
+ .debug_macro   0x000000000001c128       0x10 Src/syscalls.o
+ .debug_macro   0x000000000001c138       0x10 Src/syscalls.o
+ .debug_macro   0x000000000001c148       0x16 Src/syscalls.o
+ .debug_macro   0x000000000001c15e      0x16f Src/syscalls.o
+ .debug_macro   0x000000000001c2cd      0x189 Src/syscalls.o
+ .debug_macro   0x000000000001c456       0x16 Src/syscalls.o
+ .debug_macro   0x000000000001c46c       0x88 Src/syscalls.o
+ .debug_macro   0x000000000001c4f4      0x1ee Src/system_stm32f3xx.o
+ .debug_macro   0x000000000001c6e2      0x202 Src/usart.o
 
-.debug_line     0x0000000000000000    0x101ac
+.debug_line     0x0000000000000000     0xfa66
  .debug_line    0x0000000000000000      0x87f Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_line    0x000000000000087f      0x835 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
  .debug_line    0x00000000000010b4     0x1888 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
@@ -5090,28 +5093,27 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
  .debug_line    0x000000000000573d      0x950 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_line    0x000000000000608d     0x123e Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
  .debug_line    0x00000000000072cb      0x752 Src/adc.o
- .debug_line    0x0000000000007a1d      0x746 Src/debug_helper.o
- .debug_line    0x0000000000008163      0x6a1 Src/dma.o
- .debug_line    0x0000000000008804      0x4bf Src/fft.o
- .debug_line    0x0000000000008cc3      0x6a2 Src/gpio.o
- .debug_line    0x0000000000009365      0x881 Src/main.o
- .debug_line    0x0000000000009be6      0x6df Src/opamp.o
- .debug_line    0x000000000000a2c5      0x6a6 Src/stm32f3xx_hal_msp.o
- .debug_line    0x000000000000a96b      0x748 Src/stm32f3xx_it.o
- .debug_line    0x000000000000b0b3      0x5f5 Src/syscalls.o
- .debug_line    0x000000000000b6a8      0x6ce Src/system_stm32f3xx.o
- .debug_line    0x000000000000bd76      0x6e6 Src/usart.o
- .debug_line    0x000000000000c45c       0x7f startup/startup_stm32f303xc.o
- .debug_line    0x000000000000c4db      0x5a6 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
- .debug_line    0x000000000000ca81      0x416 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
- .debug_line    0x000000000000ce97      0x33a /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
- .debug_line    0x000000000000d1d1      0x25a /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
- .debug_line    0x000000000000d42b      0x243 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
- .debug_line    0x000000000000d66e      0x6f9 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
- .debug_line    0x000000000000dd67     0x20ef /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
- .debug_line    0x000000000000fe56      0x356 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
+ .debug_line    0x0000000000007a1d      0x6a1 Src/dma.o
+ .debug_line    0x00000000000080be      0x4e0 Src/fft.o
+ .debug_line    0x000000000000859e      0x6a2 Src/gpio.o
+ .debug_line    0x0000000000008c40      0x860 Src/main.o
+ .debug_line    0x00000000000094a0      0x6df Src/opamp.o
+ .debug_line    0x0000000000009b7f      0x6a6 Src/stm32f3xx_hal_msp.o
+ .debug_line    0x000000000000a225      0x748 Src/stm32f3xx_it.o
+ .debug_line    0x000000000000a96d      0x5f5 Src/syscalls.o
+ .debug_line    0x000000000000af62      0x6ce Src/system_stm32f3xx.o
+ .debug_line    0x000000000000b630      0x6e6 Src/usart.o
+ .debug_line    0x000000000000bd16       0x7f startup/startup_stm32f303xc.o
+ .debug_line    0x000000000000bd95      0x5a6 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+ .debug_line    0x000000000000c33b      0x416 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
+ .debug_line    0x000000000000c751      0x33a /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
+ .debug_line    0x000000000000ca8b      0x25a /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+ .debug_line    0x000000000000cce5      0x243 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+ .debug_line    0x000000000000cf28      0x6f9 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+ .debug_line    0x000000000000d621     0x20ef /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
+ .debug_line    0x000000000000f710      0x356 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
 
-.debug_str      0x0000000000000000    0xa149a
+.debug_str      0x0000000000000000    0xa1450
  .debug_str     0x0000000000000000    0x96d61 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
                                       0x974aa (size before relaxing)
  .debug_str     0x0000000000096d61      0x63e Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
@@ -5134,45 +5136,43 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
                                       0x97940 (size before relaxing)
  .debug_str     0x0000000000099672       0xa0 Src/adc.o
                                       0x972b1 (size before relaxing)
- .debug_str     0x0000000000099712      0x18f Src/debug_helper.o
-                                      0x97181 (size before relaxing)
- .debug_str     0x00000000000998a1       0x22 Src/dma.o
+ .debug_str     0x0000000000099712       0x22 Src/dma.o
                                       0x970a7 (size before relaxing)
- .debug_str     0x00000000000998c3     0x4dac Src/fft.o
-                                       0x97b4 (size before relaxing)
- .debug_str     0x000000000009e66f       0x25 Src/gpio.o
+ .debug_str     0x0000000000099734     0x4ebb Src/fft.o
+                                       0x97ce (size before relaxing)
+ .debug_str     0x000000000009e5ef       0x25 Src/gpio.o
                                       0x96c50 (size before relaxing)
- .debug_str     0x000000000009e694       0x7a Src/main.o
-                                      0x9c710 (size before relaxing)
- .debug_str     0x000000000009e70e       0x1b Src/opamp.o
+ .debug_str     0x000000000009e614       0xb0 Src/main.o
+                                      0x9c6e4 (size before relaxing)
+ .debug_str     0x000000000009e6c4       0x1b Src/opamp.o
                                       0x96f34 (size before relaxing)
- .debug_str     0x000000000009e729       0x1b Src/stm32f3xx_hal_msp.o
+ .debug_str     0x000000000009e6df       0x1b Src/stm32f3xx_hal_msp.o
                                       0x96c52 (size before relaxing)
- .debug_str     0x000000000009e744       0xd1 Src/stm32f3xx_it.o
+ .debug_str     0x000000000009e6fa       0xd1 Src/stm32f3xx_it.o
                                       0x96ea2 (size before relaxing)
- .debug_str     0x000000000009e815     0x2493 Src/syscalls.o
+ .debug_str     0x000000000009e7cb     0x2493 Src/syscalls.o
                                        0x85ee (size before relaxing)
- .debug_str     0x00000000000a0ca8       0x64 Src/system_stm32f3xx.o
+ .debug_str     0x00000000000a0c5e       0x64 Src/system_stm32f3xx.o
                                       0x96cd8 (size before relaxing)
- .debug_str     0x00000000000a0d0c       0x1a Src/usart.o
+ .debug_str     0x00000000000a0cc2       0x1a Src/usart.o
                                       0x97132 (size before relaxing)
- .debug_str     0x00000000000a0d26       0x2f startup/startup_stm32f303xc.o
+ .debug_str     0x00000000000a0cdc       0x2f startup/startup_stm32f303xc.o
                                          0x52 (size before relaxing)
- .debug_str     0x00000000000a0d55      0x1ad /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+ .debug_str     0x00000000000a0d0b      0x1ad /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
                                         0x7ac (size before relaxing)
- .debug_str     0x00000000000a0f02       0x43 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
+ .debug_str     0x00000000000a0eb8       0x43 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
                                        0x112a (size before relaxing)
- .debug_str     0x00000000000a0f45       0x3f /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
+ .debug_str     0x00000000000a0efb       0x3f /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
                                         0x650 (size before relaxing)
- .debug_str     0x00000000000a0f84      0x2ff /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
+ .debug_str     0x00000000000a0f3a      0x2ff /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_const_structs.o)
                                        0x1334 (size before relaxing)
- .debug_str     0x00000000000a1283       0x2e /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
+ .debug_str     0x00000000000a1239       0x2e /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_common_tables.o)
                                         0xcf5 (size before relaxing)
- .debug_str     0x00000000000a12b1       0xcf /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+ .debug_str     0x00000000000a1267       0xcf /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
                                         0x769 (size before relaxing)
- .debug_str     0x00000000000a1380       0xbf /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
+ .debug_str     0x00000000000a1336       0xbf /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
                                         0x76c (size before relaxing)
- .debug_str     0x00000000000a143f       0x5b /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
+ .debug_str     0x00000000000a13f5       0x5b /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
                                         0xd4e (size before relaxing)
 
 .comment        0x0000000000000000       0xf4
@@ -5188,7 +5188,6 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
  .comment       0x000000000000007f       0x80 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .comment       0x000000000000007f       0x80 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
  .comment       0x000000000000007f       0x80 Src/adc.o
- .comment       0x000000000000007f       0x80 Src/debug_helper.o
  .comment       0x000000000000007f       0x80 Src/dma.o
  .comment       0x000000000000007f       0x80 Src/fft.o
  .comment       0x000000000000007f       0x80 Src/gpio.o
@@ -5209,7 +5208,7 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
  .comment       0x00000000000000f4       0x76 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
  .comment       0x00000000000000f4       0x76 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
 
-.debug_frame    0x0000000000000000     0x202c
+.debug_frame    0x0000000000000000     0x1fc0
  .debug_frame   0x0000000000000000      0x1cc Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_frame   0x00000000000001cc      0x170 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
  .debug_frame   0x000000000000033c      0x4cc Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
@@ -5221,35 +5220,34 @@ OUTPUT(Whistle-2.0.elf elf32-littlearm)
  .debug_frame   0x0000000000000e3c       0x7c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_frame   0x0000000000000eb8      0x5a4 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
  .debug_frame   0x000000000000145c       0x88 Src/adc.o
- .debug_frame   0x00000000000014e4       0x84 Src/debug_helper.o
- .debug_frame   0x0000000000001568       0x2c Src/dma.o
- .debug_frame   0x0000000000001594       0x44 Src/fft.o
- .debug_frame   0x00000000000015d8       0x28 Src/gpio.o
- .debug_frame   0x0000000000001600       0x60 Src/main.o
- .debug_frame   0x0000000000001660       0x60 Src/opamp.o
- .debug_frame   0x00000000000016c0       0x28 Src/stm32f3xx_hal_msp.o
- .debug_frame   0x00000000000016e8       0xc0 Src/stm32f3xx_it.o
- .debug_frame   0x00000000000017a8      0x1a8 Src/syscalls.o
- .debug_frame   0x0000000000001950       0x30 Src/system_stm32f3xx.o
- .debug_frame   0x0000000000001980       0x60 Src/usart.o
- .debug_frame   0x00000000000019e0       0x9c /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
- .debug_frame   0x0000000000001a7c       0x38 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
- .debug_frame   0x0000000000001ab4       0x38 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
- .debug_frame   0x0000000000001aec       0xb8 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
- .debug_frame   0x0000000000001ba4       0x98 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
- .debug_frame   0x0000000000001c3c       0x60 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
- .debug_frame   0x0000000000001c9c       0x20 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-errno.o)
- .debug_frame   0x0000000000001cbc       0x2c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-init.o)
- .debug_frame   0x0000000000001ce8       0x20 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memset.o)
- .debug_frame   0x0000000000001d08       0x6c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sprintf.o)
- .debug_frame   0x0000000000001d74       0x90 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-svfprintf.o)
- .debug_frame   0x0000000000001e04       0x60 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x0000000000001e64       0x28 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x0000000000001e8c       0x28 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memmove.o)
- .debug_frame   0x0000000000001eb4       0x38 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x0000000000001eec       0x2c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x0000000000001f18       0x3c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-reallocr.o)
- .debug_frame   0x0000000000001f54       0x2c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x0000000000001f80       0x30 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-mlock.o)
- .debug_frame   0x0000000000001fb0       0x20 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-msizer.o)
- .debug_frame   0x0000000000001fd0       0x5c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-reent.o)
+ .debug_frame   0x00000000000014e4       0x2c Src/dma.o
+ .debug_frame   0x0000000000001510       0x5c Src/fft.o
+ .debug_frame   0x000000000000156c       0x28 Src/gpio.o
+ .debug_frame   0x0000000000001594       0x60 Src/main.o
+ .debug_frame   0x00000000000015f4       0x60 Src/opamp.o
+ .debug_frame   0x0000000000001654       0x28 Src/stm32f3xx_hal_msp.o
+ .debug_frame   0x000000000000167c       0xc0 Src/stm32f3xx_it.o
+ .debug_frame   0x000000000000173c      0x1a8 Src/syscalls.o
+ .debug_frame   0x00000000000018e4       0x30 Src/system_stm32f3xx.o
+ .debug_frame   0x0000000000001914       0x60 Src/usart.o
+ .debug_frame   0x0000000000001974       0x9c /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_q15.o)
+ .debug_frame   0x0000000000001a10       0x38 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_rfft_init_q15.o)
+ .debug_frame   0x0000000000001a48       0x38 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_abs_q15.o)
+ .debug_frame   0x0000000000001a80       0xb8 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_q15.o)
+ .debug_frame   0x0000000000001b38       0x98 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_cfft_radix4_q15.o)
+ .debug_frame   0x0000000000001bd0       0x60 /home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC/libarm_cortexM3l_math.a(arm_bitreversal2.o)
+ .debug_frame   0x0000000000001c30       0x20 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000000000001c50       0x2c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-init.o)
+ .debug_frame   0x0000000000001c7c       0x20 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x0000000000001c9c       0x6c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sprintf.o)
+ .debug_frame   0x0000000000001d08       0x90 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x0000000000001d98       0x60 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x0000000000001df8       0x28 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000000000001e20       0x28 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-memmove.o)
+ .debug_frame   0x0000000000001e48       0x38 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x0000000000001e80       0x2c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x0000000000001eac       0x3c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x0000000000001ee8       0x2c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x0000000000001f14       0x30 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-mlock.o)
+ .debug_frame   0x0000000000001f44       0x20 /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x0000000000001f64       0x5c /home/art/Ac6/SystemWorkbench/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc_nano.a(lib_a-reent.o)

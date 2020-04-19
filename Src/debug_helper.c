@@ -2,9 +2,9 @@
 
 void print_debug(char* msg)
 {
-#ifdef DEBUG_MODE
+//#ifdef DEBUG_MODE
 	  HAL_UART_Transmit(&huart1, msg, 128, 100);
-#endif // DEBUG_MODE
+//#endif // DEBUG_MODE
 }
 
 void print_debug_uint(uint16_t digit)

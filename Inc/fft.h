@@ -19,5 +19,6 @@ void fft(q15_t* src, q15_t* dst);
 
 q15_t* fft_ch1(Audio_Data *data);
 
+int is_there_whistle(Audio_Data* data);
 
 #endif // _FFT_H

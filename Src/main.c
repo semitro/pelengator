@@ -100,15 +100,15 @@ int main(void)
 	  HAL_ADC_Start(&hadc2);
 	  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
 	  HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)adc_data.data, adc_data.len);
-	  HAL_Delay(500);
-//	  arm_rfft_instance_q15 a;
-//	  arm_rfft_init_q15(&a, Audio_Data->len, );
-//	  arm_rfft_q15()
+//	  HAL_Delay(500);
 
-//	  print_debug_uint(adc_data.data[0].ch1);
-	  print_debug_ch1(&adc_data);
-	  q15_t* freq_ch1 = fft_ch1(&adc_data);
-	  print_debug_array(freq_ch1, 512);
+//	  print_debug_ch1(&adc_data);
+//	  q15_t* freq_ch1 = fft_ch1(&adc_data);
+//	  print_debug_array(freq_ch1, 512);
+	  if(is_there_whistle(&adc_data) == 1) {
+		  size_t bytes_written = sprintf(string, "URA!\n\r");
+		  HAL_UART_Transmit(&huart1, string, bytes_written, 100);
+	  }
 
 
     /* USER CODE END WHILE */
