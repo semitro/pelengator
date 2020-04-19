@@ -1,21 +1,5 @@
 /* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
-  *
-  ******************************************************************************
-  */
+
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -30,6 +14,7 @@
 /* USER CODE BEGIN Includes */
 #include "audio_format.h"
 #include "debug_helper.h"
+#include "fft.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -75,7 +60,6 @@ int main(void)
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
-  
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -103,8 +87,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_OPAMP_Start(&hopamp1);
   char string[128] = {};
-  size_t bytes_written = sprintf(string, "ADC Frequency: %d\n\r", ADC_FREQUENCY);
+  size_t bytes_written = sprintf(string, "\n\rADC Frequency: %d\n\r", ADC_FREQUENCY);
   HAL_UART_Transmit(&huart1, string, bytes_written, 100);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -116,8 +101,16 @@ int main(void)
 	  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
 	  HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)adc_data.data, adc_data.len);
 	  HAL_Delay(500);
+//	  arm_rfft_instance_q15 a;
+//	  arm_rfft_init_q15(&a, Audio_Data->len, );
+//	  arm_rfft_q15()
+
 //	  print_debug_uint(adc_data.data[0].ch1);
 	  print_debug_ch1(&adc_data);
+	  q15_t* freq_ch1 = fft_ch1(&adc_data);
+	  print_debug_array(freq_ch1, 512);
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -190,7 +183,7 @@ void Error_Handler(void)
   * @param  line: assert_param error line source number
   * @retval None
   */
-void assert_failed(char *file, uint32_t line)
+void assert_failed(uint8_t *file, uint32_t line)
 { 
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,

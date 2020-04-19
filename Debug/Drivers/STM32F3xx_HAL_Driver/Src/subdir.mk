@@ -9,6 +9,7 @@ C_SRCS += \
 ../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.c \
 ../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.c \
 ../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.c \
+../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.c \
 ../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.c \
 ../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.c \
 ../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.c \
@@ -31,6 +32,7 @@ OBJS += \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o \
+./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.o \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.o \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.o \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o \
@@ -53,6 +55,7 @@ C_DEPS += \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.d \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.d \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.d \
+./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.d \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.d \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.d \
 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.d \
@@ -75,7 +78,7 @@ Drivers/STM32F3xx_HAL_Driver/Src/%.o: ../Drivers/STM32F3xx_HAL_Driver/Src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU GCC Compiler'
 	@echo $(PWD)
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F303xC -I"/home/art/Desktop/Диплом/Whistle-2.0/Inc" -I"/home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc" -I"/home/art/Desktop/Диплом/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/Legacy" -I"/home/art/Desktop/Диплом/Whistle-2.0/Drivers/CMSIS/Device/ST/STM32F3xx/Include" -I"/home/art/Desktop/Диплом/Whistle-2.0/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F303xC '-D__FPU_PRESENT=1' -DARM_MATH_CM3 -I"/home/art/backup/Whistle-2.0/Inc" -I"/home/art/backup/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc" -I"/home/art/backup/Whistle-2.0/Drivers/STM32F3xx_HAL_Driver/Inc/Legacy" -I"/home/art/backup/Whistle-2.0/Drivers/CMSIS/Device/ST/STM32F3xx/Include" -I"/home/art/backup/Whistle-2.0/Drivers/CMSIS/Include" -I"/home/art/backup/Whistle-2.0/CMSIS/DSP/Include" -I"/home/art/backup/Whistle-2.0/CMSIS/Core/Include" -I"/home/art/backup/Whistle-2.0/Drivers/CMSIS/Include" -I"/home/art/backup/Whistle-2.0/Drivers/CMSIS/Include" -I"/home/art/backup/Whistle-2.0/Drivers/CMSIS/Include" -I"/home/art/backup/Whistle-2.0/Middlewares/Third_Party/ARM_CMSIS/CMSIS/Core/Include" -I"/home/art/backup/Whistle-2.0/Middlewares/Third_Party/ARM_CMSIS/CMSIS/Core_A/Include" -I"/home/art/backup/Whistle-2.0/Middlewares/Third_Party/ARM_CMSIS/CMSIS/DSP/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

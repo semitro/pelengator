@@ -34,7 +34,7 @@ all: Whistle-2.0.elf
 Whistle-2.0.elf: $(OBJS) $(USER_OBJS) ../STM32F303VCTx_FLASH.ld
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU GCC Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F303VCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Whistle-2.0.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -L/home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/ -L/home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/ARM -L/home/art/STM32Cube/Repository/Packs/ARM/CMSIS/5.6.0/CMSIS/DSP/Lib/GCC -specs=nosys.specs -specs=nano.specs -T"../STM32F303VCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Whistle-2.0.elf" @"objects.list" $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
