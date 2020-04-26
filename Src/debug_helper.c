@@ -14,6 +14,14 @@ void print_debug_uint(uint16_t digit)
 	  HAL_UART_Transmit(&huart1, string, bytes_written, 100);
 }
 
+void print_debug_int(int digit)
+{
+	  char string[100] = {};
+	  size_t bytes_written = sprintf(string, "%d\n\r", digit);
+	  HAL_UART_Transmit(&huart1, string, bytes_written, 100);
+}
+
+
 void print_debug_ch1(Audio_Data *data) {
 	char string[100] = {};
 	size_t written = sprintf(string, "\n\r[");

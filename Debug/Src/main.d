@@ -42,7 +42,8 @@ Src/main.o: ../Src/main.c /home/art/backup/Whistle-2.0/Inc/main.h \
  /home/art/backup/Whistle-2.0/Drivers/CMSIS/Include/cmsis_compiler.h \
  /home/art/backup/Whistle-2.0/CMSIS/DSP/Include/arm_const_structs.h \
  /home/art/backup/Whistle-2.0/CMSIS/DSP/Include/arm_math.h \
- /home/art/backup/Whistle-2.0/CMSIS/DSP/Include/arm_common_tables.h
+ /home/art/backup/Whistle-2.0/CMSIS/DSP/Include/arm_common_tables.h \
+ /home/art/backup/Whistle-2.0/Inc/corr.h
 
 /home/art/backup/Whistle-2.0/Inc/main.h:
 
@@ -133,3 +134,5 @@ Src/main.o: ../Src/main.c /home/art/backup/Whistle-2.0/Inc/main.h \
 /home/art/backup/Whistle-2.0/CMSIS/DSP/Include/arm_math.h:
 
 /home/art/backup/Whistle-2.0/CMSIS/DSP/Include/arm_common_tables.h:
+
+/home/art/backup/Whistle-2.0/Inc/corr.h:

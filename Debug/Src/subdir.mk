@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Src/adc.c \
+../Src/corr.c \
 ../Src/debug_helper.c \
 ../Src/dma.c \
 ../Src/fft.c \
@@ -18,6 +19,7 @@ C_SRCS += \
 
 OBJS += \
 ./Src/adc.o \
+./Src/corr.o \
 ./Src/debug_helper.o \
 ./Src/dma.o \
 ./Src/fft.o \
@@ -31,6 +33,7 @@ OBJS += \
 
 C_DEPS += \
 ./Src/adc.d \
+./Src/corr.d \
 ./Src/debug_helper.d \
 ./Src/dma.d \
 ./Src/fft.d \

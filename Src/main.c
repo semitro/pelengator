@@ -14,6 +14,7 @@
 #include "audio_format.h"
 #include "debug_helper.h"
 #include "fft.h"
+#include "corr.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -112,19 +113,24 @@ int main(void)
 	  HAL_Delay(4);
 	  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_RESET);
 
-//	  print_debug_ch1(&adc_data);
-//	  print_debug_ch2(&adc_data);
+	  q15_t corr = calc_shift(current_buffer);
+	  if(corr < 25 && corr > -25){
+		  print_debug_int(to_grad(corr));
+	  }
+//	  print_debug_array(corr, 512);
+//	  print_debug_ch1(current_buffer);
+//	  print_debug_ch2(current_buffer);
 
 //	  q15_t* freq_ch1 = fft_ch1(&adc_data);
 //	  print_debug_array(freq_ch1, 512);
 //	  if(is_there_whistle(current_buffer) == 1) {
 //		  size_t bytes_written = sprintf(string, "URA!\n\r");
 //		  HAL_UART_Transmit(&huart1, string, bytes_written, 100);
-		  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
-		  print_debug_ch1(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
-		  print_debug_ch2(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
-		  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_SET);
-		  HAL_Delay(1500);
+//		  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
+//		  print_debug_ch1(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+//		  print_debug_ch2(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+//		  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_SET);
+//		  HAL_Delay(1500);
 //	  }
 
     /* USER CODE END WHILE */
@@ -159,7 +165,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV8;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV16;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV16;
 
