@@ -6,7 +6,6 @@
 #include "main.h"
 #include "adc.h"
 #include "dma.h"
-#include "opamp.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -36,6 +35,10 @@
 
 /* USER CODE BEGIN PV */
 Audio_Data adc_data = {
+		.len = AUDIO_DATA_LEN
+};
+
+Audio_Data adc_data_2 = {
 		.len = AUDIO_DATA_LEN
 };
 /* USER CODE END PV */
@@ -83,12 +86,13 @@ int main(void)
   MX_ADC1_Init();
   MX_ADC2_Init();
   MX_USART1_UART_Init();
-  MX_OPAMP1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_OPAMP_Start(&hopamp1);
+//  HAL_OPAMP_Start(&hopamp1);
+  Audio_Data *current_buffer = &adc_data;
   char string[128] = {};
   size_t bytes_written = sprintf(string, "\n\rADC Frequency: %d\n\r", ADC_FREQUENCY);
   HAL_UART_Transmit(&huart1, string, bytes_written, 100);
+  int there_was_whistle = 0;
 
   /* USER CODE END 2 */
 
@@ -97,19 +101,31 @@ int main(void)
   while (1)
   {
 	  HAL_ADC_Stop(&hadc2);
+	  if(current_buffer == &adc_data) {
+		  current_buffer = &adc_data_2;
+	  } else {
+		  current_buffer = &adc_data;
+	  }
 	  HAL_ADC_Start(&hadc2);
 	  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
-	  HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)adc_data.data, adc_data.len);
-//	  HAL_Delay(500);
+	  HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)current_buffer, adc_data.len);
+	  HAL_Delay(4);
+	  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_RESET);
 
 //	  print_debug_ch1(&adc_data);
+//	  print_debug_ch2(&adc_data);
+
 //	  q15_t* freq_ch1 = fft_ch1(&adc_data);
 //	  print_debug_array(freq_ch1, 512);
-	  if(is_there_whistle(&adc_data) == 1) {
-		  size_t bytes_written = sprintf(string, "URA!\n\r");
-		  HAL_UART_Transmit(&huart1, string, bytes_written, 100);
-	  }
-
+//	  if(is_there_whistle(current_buffer) == 1) {
+//		  size_t bytes_written = sprintf(string, "URA!\n\r");
+//		  HAL_UART_Transmit(&huart1, string, bytes_written, 100);
+		  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
+		  print_debug_ch1(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+		  print_debug_ch2(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+		  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_SET);
+		  HAL_Delay(1500);
+//	  }
 
     /* USER CODE END WHILE */
 
@@ -143,7 +159,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV8;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV16;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV16;
 

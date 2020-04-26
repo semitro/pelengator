@@ -10,7 +10,6 @@ C_SRCS += \
 ../Src/fft.c \
 ../Src/gpio.c \
 ../Src/main.c \
-../Src/opamp.c \
 ../Src/stm32f3xx_hal_msp.c \
 ../Src/stm32f3xx_it.c \
 ../Src/syscalls.c \
@@ -24,7 +23,6 @@ OBJS += \
 ./Src/fft.o \
 ./Src/gpio.o \
 ./Src/main.o \
-./Src/opamp.o \
 ./Src/stm32f3xx_hal_msp.o \
 ./Src/stm32f3xx_it.o \
 ./Src/syscalls.o \
@@ -38,7 +36,6 @@ C_DEPS += \
 ./Src/fft.d \
 ./Src/gpio.d \
 ./Src/main.d \
-./Src/opamp.d \
 ./Src/stm32f3xx_hal_msp.d \
 ./Src/stm32f3xx_it.d \
 ./Src/syscalls.d \

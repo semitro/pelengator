@@ -2,8 +2,8 @@
 
 int is_there_whistle(Audio_Data* data){
 	int16_t* freq_ch1 = fft_ch1(data);
-	for(int i = 55; i < 115; ++i){
-		if(freq_ch1[i] > 5 || freq_ch1[i] < -5) {
+	for(int i = 15; i < 22; ++i){
+		if(freq_ch1[i] >  4 || freq_ch1[i] < -4) {
 			return 1;
 		}
 	}
