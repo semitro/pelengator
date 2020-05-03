@@ -28,5 +28,6 @@
 "Src/stm32f3xx_it.o"
 "Src/syscalls.o"
 "Src/system_stm32f3xx.o"
+"Src/tim.o"
 "Src/usart.o"
 "startup/startup_stm32f303xc.o"

@@ -6,6 +6,7 @@
 #include "main.h"
 #include "adc.h"
 #include "dma.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -25,6 +26,9 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define DEBUG_MODE
+#define    DWT_CYCCNT    *(volatile uint32_t*)0xE0001004
+#define    DWT_CONTROL   *(volatile uint32_t*)0xE0001000
+#define    SCB_DEMCR     *(volatile uint32_t*)0xE000EDFC
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -42,6 +46,7 @@ Audio_Data adc_data = {
 Audio_Data adc_data_2 = {
 		.len = AUDIO_DATA_LEN
 };
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -87,6 +92,7 @@ int main(void)
   MX_ADC1_Init();
   MX_ADC2_Init();
   MX_USART1_UART_Init();
+  MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
 //  HAL_OPAMP_Start(&hopamp1);
   Audio_Data *current_buffer = &adc_data;
@@ -94,6 +100,18 @@ int main(void)
   size_t bytes_written = sprintf(string, "\n\rADC Frequency: %d\n\r", ADC_FREQUENCY);
   HAL_UART_Transmit(&huart1, string, bytes_written, 100);
   int there_was_whistle = 0;
+  // calibration
+  HAL_ADC_Start(&hadc2);
+  HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)current_buffer, adc_data.len);
+  HAL_Delay(40);
+  SCB_DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;// разрешаем использовать DWT
+
+
+
+  calibrate_mean(current_buffer);
+  bytes_written = sprintf(string, "Silence pressure: %d, %d\n\r", mean_silence_ch1, mean_silence_ch2);
+  HAL_UART_Transmit(&huart1, string, bytes_written, 100);
+  HAL_TIM_Base_Start(&htim8);
 
   /* USER CODE END 2 */
 
@@ -110,16 +128,27 @@ int main(void)
 	  HAL_ADC_Start(&hadc2);
 	  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
 	  HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)current_buffer, adc_data.len);
-	  HAL_Delay(4);
-	  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_RESET);
+//	  HAL_Delay(10);
+	  led_off();
+	  // time laps
+	   DWT_CONTROL|= DWT_CTRL_CYCCNTENA_Msk; // включаем счётчик
+	   DWT_CYCCNT = 0;// обнуляем счётчик
+//	  q15_t corr = calc_shift(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+	   q15_t* corr_arr = eval_shift(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+	  int timerValue = DWT_CYCCNT;//__HAL_TIM_GET_COUNTER(&htim8);  count_tic = ; // кол-во тактов
 
-	  q15_t corr = calc_shift(current_buffer);
-	  if(corr < 25 && corr > -25){
-		  print_debug_int(to_grad(corr));
-	  }
-//	  print_debug_array(corr, 512);
-//	  print_debug_ch1(current_buffer);
-//	  print_debug_ch2(current_buffer);
+//	  if(corr <16 && corr > -16){
+	  	  print_debug_int(timerValue);
+
+//	  }
+//	  if(corr < 35 && corr > -35){
+//		  print_debug_int(to_grad(corr));
+//		  led_peleng(to_grad(corr));
+//	  }
+		  print_debug_array(corr_arr, 512);
+
+	  print_debug_ch1(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+	  print_debug_ch2(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
 
 //	  q15_t* freq_ch1 = fft_ch1(&adc_data);
 //	  print_debug_array(freq_ch1, 512);
@@ -173,8 +202,9 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_TIM8;
   PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_SYSCLK;
+  PeriphClkInit.Tim8ClockSelection = RCC_TIM8CLK_HCLK;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
