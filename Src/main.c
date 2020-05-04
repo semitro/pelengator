@@ -120,13 +120,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	  while(1) {
+		  HAL_Delay(300);
+	  }
 	  HAL_ADC_Stop(&hadc2);
 	  if(current_buffer == &adc_data) {
 		  current_buffer = &adc_data_2;
 	  } else {
 		  current_buffer = &adc_data;
 	  }
+	  led_off();
 	  HAL_ADC_Start(&hadc2);
 	  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
 	  HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)current_buffer, adc_data.len);
@@ -139,6 +142,8 @@ int main(void)
 		   int shift_dx = max_index(corr_arr);
 		   median_add(shift_dx);
 			  int timerValue = DWT_CYCCNT;
+//		  	  print_debug_int(timerValue);
+
 //		   if(shift_dx <= 0 ){
 //			   	   print_debug_int(timerValue);
 //			   	   HAL_Delay(160);
@@ -148,33 +153,24 @@ int main(void)
 //		   }
 
 	   }
-//	   HAL_Delay(40);
-//  	  print_debug_int(timerValue);
-  	  if(median_current_size() == MEDIAN_LEN) {
-  		  int filtered_idx = median_value();
+
+	   int filtered_idx;
+	   if(median_current_size() == MEDIAN_LEN) {
+  		  filtered_idx = median_value();
+		  led_peleng(to_grad(filtered_idx));
+
   		  print_debug_int(filtered_idx);
-  		  print_debug_array(corr_arr, 512);
-  		  print_debug_ch1(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
-  		  print_debug_ch2(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+//  		  print_debug_array(corr_arr, 512);
+//  		  print_debug_ch1(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+//  		  print_debug_ch2(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
   	  }
-//	  if(corr <16 && corr > -16){
-//	  print_debug_int(corr);
 
-//	  }
-//	  if(corr < 35 && corr > -35){
-//		  print_debug_int(to_grad(corr));
-	  led_off();
-  	  if(!is_silence(current_buffer == &adc_data ? &adc_data_2 : &adc_data)){
-		  led_peleng(to_grad(-6));
 
-  	  }
 
   	 while(HAL_DMA_GetState(&hdma_adc1) == HAL_DMA_STATE_BUSY){
-  			  led_peleng(90);
   			  HAL_Delay(1);
-  		  }
+  	 }
 
-	  led_off();
 
 
 

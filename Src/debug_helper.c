@@ -82,7 +82,7 @@ void print_debug_ch2(Audio_Data *data) {
 
 }
 
-void print_debug_array(int16_t* arr, size_t len){
+void print_debug_array(int32_t* arr, size_t len){
 	char string[100] = {};
 	size_t written = sprintf(string, "\n\r[");
 	HAL_UART_Transmit(&huart1, string, written, 100);
