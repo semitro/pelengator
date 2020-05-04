@@ -4,6 +4,7 @@
 #include "usart.h"
 #include "audio_format.h"
 
+void led_off();
 void print_debug(char* msg);
 void print_debug_uint(uint16_t digit);
 void print_debug_int(int digit);

@@ -16,32 +16,52 @@ void calibrate_mean(Audio_Data *data){
 
 }
 
+int is_silence(Audio_Data* data){
+	for(int i = 0; i < data->len; i++) {
+		if(data->data[i].ch1 - mean_silence_ch1 > 20){
+			return 0;
+		}
+	}
+	return 1;
+}
 
 q15_t* eval_shift(Audio_Data *data){
 	for(int i = 0; i < data->len; i++) {
 			ch1[i] = data->data[i].ch1 - mean_silence_ch1;
 			ch2[i] = data->data[i].ch2 - mean_silence_ch2;
 		}
-#define MAX_SHIFT 15
-		arm_correlate_q15(ch1, AUDIO_DATA_LEN/2, ch2, AUDIO_DATA_LEN/2, out);
+		arm_correlate_q7(ch1, AUDIO_DATA_LEN/4, ch2, AUDIO_DATA_LEN/4, out);
 //		arm_conv_partial_fast_q15(ch1, AUDIO_DATA_LEN/4, ch2, AUDIO_DATA_LEN/4, out, 0, MAX_SHIFT*2);
 	return out;
 }
 
+int max_index(q15_t* corr) {
+	int32_t max = 0;
+	int max_idx = 31;
+	for(int i = 31 - 15; i < 64; i++){
+		if(corr[i] > max){
+			max = corr[i];
+			max_idx = i;
+		}
+	}
+	return max_idx - 31;
 
-int calc_shift(Audio_Data *data){
+}
+
+
+int calc_shift(Audio_Data *data, q15_t** gde_data){
 	for(int i = 0; i < data->len; i++) {
 			ch1[i] = data->data[i].ch1 - mean_silence_ch1;
 			ch2[i] = data->data[i].ch2 - mean_silence_ch2;
 		}
 #define MAX_SHIFT 15
 //	arm_correlate_fast_q15(ch1, AUDIO_DATA_LEN, ch2, AUDIO_DATA_LEN, out);
-	arm_conv_partial_fast_q15(ch1, AUDIO_DATA_LEN/4, ch2, AUDIO_DATA_LEN/4, out, 0, MAX_SHIFT*2);
+	arm_correlate_q7(ch1, AUDIO_DATA_LEN/4, ch2, AUDIO_DATA_LEN/4, out);
 	q15_t maximum = 0;
 	uint32_t maximum_idx = 0;
-	arm_max_q15(out, MAX_SHIFT*2, &maximum, &maximum_idx);
-
-	return (int)maximum_idx - MAX_SHIFT;
+	arm_max_q7(out, 64, &maximum, &maximum_idx);
+	gde_data = out;
+	return (int)maximum_idx - 32;
 }
 
 

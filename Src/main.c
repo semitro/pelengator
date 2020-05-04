@@ -16,6 +16,7 @@
 #include "debug_helper.h"
 #include "fft.h"
 #include "corr.h"
+#include "median.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -119,6 +120,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
 	  HAL_ADC_Stop(&hadc2);
 	  if(current_buffer == &adc_data) {
 		  current_buffer = &adc_data_2;
@@ -128,39 +130,54 @@ int main(void)
 	  HAL_ADC_Start(&hadc2);
 	  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
 	  HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)current_buffer, adc_data.len);
-//	  HAL_Delay(10);
-	  led_off();
 	  // time laps
 	   DWT_CONTROL|= DWT_CTRL_CYCCNTENA_Msk; // включаем счётчик
 	   DWT_CYCCNT = 0;// обнуляем счётчик
-//	  q15_t corr = calc_shift(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
-	   q15_t* corr_arr = eval_shift(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
-	  int timerValue = DWT_CYCCNT;//__HAL_TIM_GET_COUNTER(&htim8);  count_tic = ; // кол-во тактов
+	   q15_t* corr_arr;
+	   if(!is_silence(current_buffer == &adc_data ? &adc_data_2 : &adc_data)) {
+		   corr_arr = eval_shift(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+		   int shift_dx = max_index(corr_arr);
+		   median_add(shift_dx);
+			  int timerValue = DWT_CYCCNT;
+//		   if(shift_dx <= 0 ){
+//			   	   print_debug_int(timerValue);
+//			   	   HAL_Delay(160);
+//				  print_debug_ch1(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+//				  print_debug_ch2(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+//				  print_debug_array(corr_arr, 512);
+//		   }
 
+	   }
+//	   HAL_Delay(40);
+//  	  print_debug_int(timerValue);
+  	  if(median_current_size() == MEDIAN_LEN) {
+  		  int filtered_idx = median_value();
+  		  print_debug_int(filtered_idx);
+  		  print_debug_array(corr_arr, 512);
+  		  print_debug_ch1(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+  		  print_debug_ch2(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+  	  }
 //	  if(corr <16 && corr > -16){
-	  	  print_debug_int(timerValue);
+//	  print_debug_int(corr);
 
 //	  }
 //	  if(corr < 35 && corr > -35){
 //		  print_debug_int(to_grad(corr));
-//		  led_peleng(to_grad(corr));
-//	  }
-		  print_debug_array(corr_arr, 512);
+	  led_off();
+  	  if(!is_silence(current_buffer == &adc_data ? &adc_data_2 : &adc_data)){
+		  led_peleng(to_grad(-6));
 
-	  print_debug_ch1(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
-	  print_debug_ch2(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
+  	  }
 
-//	  q15_t* freq_ch1 = fft_ch1(&adc_data);
-//	  print_debug_array(freq_ch1, 512);
-//	  if(is_there_whistle(current_buffer) == 1) {
-//		  size_t bytes_written = sprintf(string, "URA!\n\r");
-//		  HAL_UART_Transmit(&huart1, string, bytes_written, 100);
-//		  HAL_ADCEx_MultiModeStop_DMA(&hadc1);
-//		  print_debug_ch1(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
-//		  print_debug_ch2(current_buffer == &adc_data ? &adc_data_2 : &adc_data);
-//		  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_SET);
-//		  HAL_Delay(1500);
-//	  }
+  	 while(HAL_DMA_GetState(&hdma_adc1) == HAL_DMA_STATE_BUSY){
+  			  led_peleng(90);
+  			  HAL_Delay(1);
+  		  }
+
+	  led_off();
+
+
+
 
     /* USER CODE END WHILE */
 

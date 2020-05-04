@@ -24,6 +24,7 @@
 "Src/fft.o"
 "Src/gpio.o"
 "Src/main.o"
+"Src/median.o"
 "Src/stm32f3xx_hal_msp.o"
 "Src/stm32f3xx_it.o"
 "Src/syscalls.o"
